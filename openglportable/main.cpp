@@ -1,13 +1,14 @@
 #include <GL/glut.h>
 #include "Triangle.h"
 #include "Polygon.h"
+#include"drawLine.h"
 
 void display() {
     glClear(GL_COLOR_BUFFER_BIT);
 
 
     drawTriangle();
-
+  drawLine();
 
     glColor3f(1.0f, 1.0f, 0.0f);
     drawPolygon();
