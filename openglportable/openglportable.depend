@@ -51,3 +51,30 @@
 	<GL/glu.h>
 	<stdlib.h>
 
+1766006760 source:e:\desktop\cg project\skyflyer\openglportable\main.cpp
+	<GL/glut.h>
+	"Triangle.h"
+	"Polygon.h"
+
+1766004766 e:\desktop\cg project\skyflyer\freeglut\include\gl\glut.h
+	"freeglut_std.h"
+
+1766004766 e:\desktop\cg project\skyflyer\freeglut\include\gl\freeglut_std.h
+	<windows.h>
+	<EGL/egl.h>
+	<GLES/gl.h>
+	<GLES2/gl2.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1766006760 source:e:\desktop\cg project\skyflyer\openglportable\triangle.cpp
+	<GL/glut.h>
+	"Triangle.h"
+
+1766006760 e:\desktop\cg project\skyflyer\openglportable\triangle.h
+
+1766006760 e:\desktop\cg project\skyflyer\openglportable\polygon.h
+

@@ -1,37 +1,31 @@
 #include <GL/glut.h>
-#include <math.h>
+#include "Triangle.h"
+#include "Polygon.h"
 
-
-
-void display()
-{
+void display() {
     glClear(GL_COLOR_BUFFER_BIT);
-    glLoadIdentity();
 
 
+    drawTriangle();
 
 
-    glBegin(GL_POLYGON);
-        glVertex2f(-0.05, 0.05);
-        glVertex2f(0.05, 0.05);
-        glVertex2f(0.05, -0.05);
-        glVertex2f(-0.05, -0.05);
-    glEnd();
+    glColor3f(1.0f, 1.0f, 0.0f);
+    drawPolygon();
 
     glFlush();
 }
 
-
-
-int main(int argc, char** argv)
-{
+int main(int argc, char** argv) {
     glutInit(&argc, argv);
-    glutInitWindowSize(400, 400);
-    glutCreateWindow("OpenGL ");
-    glutDisplayFunc(display);
-
+    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+    glutInitWindowSize(600, 600);
+    glutCreateWindow("Triangle + Polygon");
 
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+
+    glutDisplayFunc(display);
     glutMainLoop();
+
     return 0;
 }
+
