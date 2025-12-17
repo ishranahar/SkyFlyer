@@ -78,3 +78,41 @@
 
 1766006760 e:\desktop\cg project\skyflyer\openglportable\polygon.h
 
+1766008247 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\drawline.cpp
+	<GL/glut.h>
+	"drawLine.h"
+
+1766007655 e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\freeglut\include\gl\glut.h
+	"freeglut_std.h"
+
+1766007655 e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\freeglut\include\gl\freeglut_std.h
+	<windows.h>
+	<EGL/egl.h>
+	<GLES/gl.h>
+	<GLES2/gl2.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1766008247 e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\drawline.h
+
+1766008247 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\main.cpp
+	<GL/glut.h>
+	"Triangle.h"
+	"Polygon.h"
+	"drawLine.h"
+
+1766007655 e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\triangle.h
+
+1766007655 e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\polygon.h
+
+1766007655 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\polygon.cpp
+	<GL/glut.h>
+	"Polygon.h"
+
+1766007655 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\triangle.cpp
+	<GL/glut.h>
+	"Triangle.h"
+
