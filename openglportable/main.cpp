@@ -1,58 +1,42 @@
 #include <GL/glut.h>
 
-
+// Old headers
 #include "Triangle.h"
 #include "Polygon.h"
 #include "drawLine.h"
+#include "drawdrone.h"
 
-#include "Drone.h"
+// New OOP header
+#include "airline.h"
 
-#define DRONE_COUNT 40
-Drone drones[DRONE_COUNT];
+// OOP Object
+Airline airplane;
 
-
-void display()
-{
+void display() {
     glClear(GL_COLOR_BUFFER_BIT);
 
-
+    // ===== Old drawings (keep commented if not used) =====
     // drawTriangle();
     // drawLine();
     // drawPolygon();
     // drawDrone();
 
-
-    for (int i = 0; i < DRONE_COUNT; i++)
-    {
-        drones[i].draw();
-    }
+    // ===== New OOP Airplane =====
+    airplane.draw();
 
     glFlush();
 }
 
-
-int main(int argc, char** argv)
-{
+int main(int argc, char** argv) {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+    glutInitWindowSize(800, 600);
+    glutCreateWindow("OpenGL Project (Merged)");
 
-
-    glutInitWindowSize(800, 800);
-    glutCreateWindow("CG Project ");
-
-
-    glClearColor(1.0f, 0.8f, 0.2f, 1.0f);
-
-
-    for (int i = 0; i < DRONE_COUNT; i++)
-    {
-        float x = -0.9f + (i % 8) * 0.25f;
-        float y =  0.7f - (i / 8) * 0.25f;
-        drones[i] = Drone(x, y, 0.35f);
-    }
+    glClearColor(0.53f, 0.81f, 0.98f, 1.0f);
 
     glutDisplayFunc(display);
     glutMainLoop();
+
     return 0;
 }
-
