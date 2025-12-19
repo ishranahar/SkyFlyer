@@ -117,10 +117,14 @@
 	<GL/glut.h>
 	"Triangle.h"
 
-1766152418 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\drawdrone.cpp
+1766166376 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\drawdrone.cpp
 	<GL/glut.h>
 	<cmath>
 	"drawdrone.h"
 
-1766152115 e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\drawdrone.h
+1766166376 e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\drawdrone.h
+
+1766167559 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\drone.cpp
+	<GL/glut.h>
+	<cmath>
 
