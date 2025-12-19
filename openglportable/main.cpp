@@ -1,27 +1,15 @@
 #include <GL/glut.h>
-
-// Old headers
 #include "Triangle.h"
 #include "Polygon.h"
 #include "drawLine.h"
 #include "drawdrone.h"
-
-// New OOP header
 #include "airline.h"
 
-// OOP Object
 Airline airplane;
 
 void display() {
     glClear(GL_COLOR_BUFFER_BIT);
 
-    // ===== Old drawings (keep commented if not used) =====
-    // drawTriangle();
-    // drawLine();
-    // drawPolygon();
-    // drawDrone();
-
-    // ===== New OOP Airplane =====
     airplane.draw();
 
     glFlush();
@@ -40,3 +28,40 @@ int main(int argc, char** argv) {
 
     return 0;
 }
+
+//copy from github
+/*
+#include <GL/glut.h>
+#include "Triangle.h"
+#include "Polygon.h"
+#include"drawLine.h"
+#include"drawdrone.h"
+
+void display() {
+    glClear(GL_COLOR_BUFFER_BIT);
+
+
+    //drawTriangle();
+  //drawLine();
+
+    glColor3f(1.0f, 1.0f, 0.0f);
+    //drawPolygon();
+    drawDrone();
+
+    glFlush();
+}
+
+int main(int argc, char** argv) {
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+    glutInitWindowSize(600, 600);
+    glutCreateWindow("Triangle + Polygon");
+
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+
+    glutDisplayFunc(display);
+    glutMainLoop();
+
+    return 0;
+}
+*/

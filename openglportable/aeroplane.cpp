@@ -16,7 +16,7 @@ void Airline::draw() {
     glVertex2f(-0.80, -0.75);
     glEnd();
 
-    // Cockpit Windows
+    // Windows
     glColor3f(1.0f, 1.0f, 1.0f);
     glBegin(GL_POLYGON);
     glVertex2f(-0.8315, -0.60);
@@ -32,7 +32,7 @@ void Airline::draw() {
     glVertex2f(-0.745, -0.66);
     glEnd();
 
-    // Main Fuselage
+
     glBegin(GL_POLYGON);
     glVertex2f(-0.55, -0.89);
     glVertex2f(0.0, -0.89);
@@ -47,7 +47,7 @@ void Airline::draw() {
     glVertex2f(-0.80, -0.83);
     glEnd();
 
-    // Tail Detail
+    // Tail
     glColor3f(0.0f, 0.0f, 0.0f);
     glBegin(GL_POLYGON);
     glVertex2f(-0.90, -0.75);
