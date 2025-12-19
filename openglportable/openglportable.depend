@@ -128,3 +128,44 @@
 	<GL/glut.h>
 	<cmath>
 
+1766174669 source:d:\aiub\fall 25-26\computer graphics\skyflyer\openglportable\drawdrone.cpp
+	<GL/glut.h>
+	<cmath>
+	"Drone.h"
+
+1766174669 d:\aiub\fall 25-26\computer graphics\skyflyer\freeglut\include\gl\glut.h
+	"freeglut_std.h"
+
+1766174669 d:\aiub\fall 25-26\computer graphics\skyflyer\freeglut\include\gl\freeglut_std.h
+	<windows.h>
+	<EGL/egl.h>
+	<GLES/gl.h>
+	<GLES2/gl2.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1766174669 d:\aiub\fall 25-26\computer graphics\skyflyer\openglportable\drone.h
+
+1766174669 source:d:\aiub\fall 25-26\computer graphics\skyflyer\openglportable\main.cpp
+	<GL/glut.h>
+	"Triangle.h"
+	"Polygon.h"
+	"drawLine.h"
+	"Drone.h"
+
+1766174669 d:\aiub\fall 25-26\computer graphics\skyflyer\openglportable\triangle.h
+
+1766174669 d:\aiub\fall 25-26\computer graphics\skyflyer\openglportable\polygon.h
+
+1766174669 d:\aiub\fall 25-26\computer graphics\skyflyer\openglportable\drawline.h
+
+1766174945 source:d:\aiub\fall 25-26\computer graphics\skyflyer\openglportable\aeroplane.cpp
+	"airline.h"
+	<math.h>
+
+1766174945 d:\aiub\fall 25-26\computer graphics\skyflyer\openglportable\airline.h
+	<GL/glut.h>
+
