@@ -98,11 +98,12 @@
 
 1766008247 e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\drawline.h
 
-1766008247 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\main.cpp
+1766152244 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\main.cpp
 	<GL/glut.h>
 	"Triangle.h"
 	"Polygon.h"
 	"drawLine.h"
+	"drawdrone.h"
 
 1766007655 e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\triangle.h
 
@@ -115,4 +116,11 @@
 1766007655 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\triangle.cpp
 	<GL/glut.h>
 	"Triangle.h"
+
+1766152418 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\drawdrone.cpp
+	<GL/glut.h>
+	<cmath>
+	"drawdrone.h"
+
+1766152115 e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\drawdrone.h
 

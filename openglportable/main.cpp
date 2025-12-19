@@ -2,16 +2,18 @@
 #include "Triangle.h"
 #include "Polygon.h"
 #include"drawLine.h"
+#include"drawdrone.h"
 
 void display() {
     glClear(GL_COLOR_BUFFER_BIT);
 
 
-    drawTriangle();
-  drawLine();
+    //drawTriangle();
+  //drawLine();
 
     glColor3f(1.0f, 1.0f, 0.0f);
-    drawPolygon();
+    //drawPolygon();
+    drawDrone();
 
     glFlush();
 }
