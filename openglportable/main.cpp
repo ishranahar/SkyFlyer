@@ -4,6 +4,43 @@
 #include "drawLine.h"
 #include "drawdrone.h"
 #include "airline.h"
+#include "bird.h"
+
+Airline airplane;
+Bird bird1(0.0f, 0.0f, 1.0f);
+
+
+void display() {
+    glClear(GL_COLOR_BUFFER_BIT);
+    airplane.draw();
+    bird1.draw();
+
+    glFlush();
+}
+
+int main(int argc, char** argv) {
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+    glutInitWindowSize(2050, 1200);
+    glutCreateWindow("SkyFlyer - OpenGL OOP Project ");
+
+    glClearColor(0.53f, 0.81f, 0.98f, 1.0f);
+    glutDisplayFunc(display);
+
+    glutMainLoop();
+    return 0;
+}
+
+
+
+
+
+/*#include <GL/glut.h>
+#include "Triangle.h"
+#include "Polygon.h"
+#include "drawLine.h"
+#include "drawdrone.h"
+#include "airline.h"
 
 Airline airplane;
 
@@ -18,7 +55,7 @@ void display() {
 int main(int argc, char** argv) {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
-    glutInitWindowSize(800, 600);
+    glutInitWindowSize(2050, 1200);
     glutCreateWindow("OpenGL Project (Merged)");
 
     glClearColor(0.53f, 0.81f, 0.98f, 1.0f);
