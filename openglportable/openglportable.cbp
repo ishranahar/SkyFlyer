@@ -39,6 +39,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="aeroplane.cpp" />
+		<Unit filename="airline.h" />
 		<Unit filename="drawdrone.cpp" />
 		<Unit filename="drawdrone.h" />
 		<Unit filename="main.cpp" />
