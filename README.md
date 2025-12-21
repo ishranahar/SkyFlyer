@@ -102,5 +102,3 @@
 ---
 
 
-Say the word.
-
