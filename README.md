@@ -79,7 +79,6 @@
 ### **Tajmun Nahar Tisha**
 
 * Bird and enemy aircraft design
-* Sky background design
 * Dynamic sky background animation
 * Pause and restart functionality
 * Sound system implementation
@@ -87,7 +86,6 @@
 ### **Karima Akter**
 
 * Cloud and building design
-* Grass and flower design
 * Level logic and speed control
 * Object movement handling
 
@@ -98,6 +96,14 @@
 * Core animation logic
 * Score system implementation
 * Collision detection and game-over logic
+ 
+### **MD. Nazib Mahbub Esam**
+
+* Sky background design
+* Grass and flower design
+* Enemy movement handling
+
+
 
 ---
 
