@@ -86,20 +86,19 @@
 ### **Karima Akter**
 
 * Cloud and building design
-* Level logic and speed control
+* Level Logic & speed control of drone, birds,  and aircraft
 * Object movement handling
 
 ### **Shafiqul Islam Nayem**
 
 * Drone design
 * Keyboard control implementation
-* Core animation logic
+* Full Background  logic Design
 * Score system implementation
 * Collision detection and game-over logic
  
 ### **MD. Nazib Mahbub Esam**
 
-* Sky background design
 * Grass and flower design
 * Enemy movement handling
 
