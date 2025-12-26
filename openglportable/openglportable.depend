@@ -56,10 +56,10 @@
 	"Triangle.h"
 	"Polygon.h"
 
-1766004766 e:\desktop\cg project\skyflyer\freeglut\include\gl\glut.h
+1766768283 e:\desktop\cg project\skyflyer\freeglut\include\gl\glut.h
 	"freeglut_std.h"
 
-1766004766 e:\desktop\cg project\skyflyer\freeglut\include\gl\freeglut_std.h
+1766768283 e:\desktop\cg project\skyflyer\freeglut\include\gl\freeglut_std.h
 	<windows.h>
 	<EGL/egl.h>
 	<GLES/gl.h>
@@ -183,4 +183,18 @@
 	<cmath>
 
 1766215830 d:\aiub\fall 25-26\computer graphics\skyflyer\openglportable\bird.h
+
+1766768283 source:e:\desktop\cg project\skyflyer\openglportable\aeroplane.cpp
+	"airline.h"
+	<math.h>
+
+1766768283 e:\desktop\cg project\skyflyer\openglportable\airline.h
+	<GL/glut.h>
+
+1766768283 source:e:\desktop\cg project\skyflyer\openglportable\drawdrone.cpp
+	<GL/glut.h>
+	<cmath>
+	"Drone.h"
+
+1766768283 e:\desktop\cg project\skyflyer\openglportable\drone.h
 
