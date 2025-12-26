@@ -81,7 +81,7 @@
 * Bird and enemy aircraft design
 * Dynamic sky background animation
 * Pause and restart functionality
-* Sound system implementation
+
 
 ### **Karima Akter**
 
@@ -92,7 +92,6 @@
 ### **Shafiqul Islam Nayem**
 
 * Drone design
-* Keyboard control implementation
 * Full Background  logic Design
 * Score system implementation
 * Collision detection and game-over logic
@@ -100,7 +99,8 @@
 ### **MD. Nazib Mahbub Esam**
 
 * Grass and flower design
-* Enemy movement handling
+* Keyboard control implementation
+* Sound system implementation
 
 
 
