@@ -198,3 +198,84 @@
 
 1766768283 e:\desktop\cg project\skyflyer\openglportable\drone.h
 
+1766772632 source:f:\skyflyer\openglportable\aeroplane.cpp
+	"airline.h"
+	<math.h>
+
+1766772632 f:\skyflyer\openglportable\airline.h
+	<GL/glut.h>
+
+1766772632 f:\skyflyer\freeglut\include\gl\glut.h
+	"freeglut_std.h"
+
+1766772632 f:\skyflyer\freeglut\include\gl\freeglut_std.h
+	<windows.h>
+	<EGL/egl.h>
+	<GLES/gl.h>
+	<GLES2/gl2.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1766772632 source:f:\skyflyer\openglportable\circle.cpp
+	"Circle.h"
+	<GL/glut.h>
+	<math.h>
+
+1766772632 f:\skyflyer\openglportable\circle.h
+
+1766772632 source:f:\skyflyer\openglportable\cloud.cpp
+	"Cloud.h"
+	<GL/glut.h>
+	<math.h>
+
+1766772632 f:\skyflyer\openglportable\cloud.h
+
+1766772633 source:f:\skyflyer\openglportable\drawdrone.cpp
+	<GL/glut.h>
+	<cmath>
+	"Drone.h"
+
+1766772632 f:\skyflyer\openglportable\drone.h
+
+1766773410 source:f:\skyflyer\openglportable\main.cpp
+	"Cloud.h"
+	"Triangle.h"
+	"Polygon.h"
+	"drawLine.h"
+	"drawdrone.h"
+	"airline.h"
+	"bird.h"
+	"Triangle.h"
+	"Polygon.h"
+	"drawLine.h"
+	"drawdrone.h"
+	"airline.h"
+	<GL/glut.h>
+	"Triangle.h"
+	"Polygon.h"
+	"drawLine.h"
+	"drawdrone.h"
+	<GL/glut.h>
+	"sky.h"
+	"Cloud.h"
+
+1766772632 f:\skyflyer\openglportable\triangle.h
+
+1766772632 f:\skyflyer\openglportable\polygon.h
+
+1766772633 f:\skyflyer\openglportable\drawline.h
+
+1766772633 f:\skyflyer\openglportable\drawdrone.h
+
+1766772633 f:\skyflyer\openglportable\bird.h
+
+1766773410 f:\skyflyer\openglportable\sky.h
+	<GL/glut.h>
+
+1766773410 source:f:\skyflyer\openglportable\sky.cpp
+	"sky.h"
+	<cmath>
+

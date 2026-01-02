@@ -1,4 +1,4 @@
-#include <GL/glut.h>
+/*#include <GL/glut.h>
 #include "Cloud.h"
 
 float coord_x = 0.0f;
@@ -159,3 +159,84 @@ int main(int argc, char** argv) {
     return 0;
 }
 */
+#include <GL/glut.h>
+#include "sky.h"
+#include "Cloud.h"
+
+// Global variables
+float coord_x = 0.0f;
+float coord_y = 0.0f;
+
+Cloud clouds[3];
+
+// ---------- DISPLAY (ONLY HERE) ----------
+void display()
+{
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+
+    drawSky();
+    drawSun();
+
+    glTranslatef(coord_x, coord_y, 0.0f);
+    drawClouds(clouds, 3);
+
+    glutSwapBuffers();
+}
+
+// ---------- Keyboard ----------
+void KeyboardInput(unsigned char key, int, int)
+{
+    if (key == 'l') coord_x += 0.05f;
+    if (key == 'r') coord_x -= 0.05f;
+
+    glutPostRedisplay();
+}
+
+// ---------- Update ----------
+void update()
+{
+    updateSky();
+
+    for (int i = 0; i < 3; i++) {
+        clouds[i].x += clouds[i].speed;
+        if (clouds[i].x > 1.4f)
+            clouds[i].x = -1.4f;
+    }
+
+    glutPostRedisplay();
+}
+
+// ---------- Init ----------
+void initScene()
+{
+    initSky();
+
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluOrtho2D(-1, 1, -1, 1);
+
+    clouds[0] = {-0.6f, 0.6f, 0.0005f};
+    clouds[1] = {-0.05f, 0.8f, 0.0007f};
+    clouds[2] = { 0.6f, 0.5f, 0.0006f};
+}
+
+// ---------- MAIN ----------
+int main(int argc, char** argv)
+{
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
+    glutInitWindowSize(1200, 800);
+    glutCreateWindow("SkyFlyer - Final Merged Version");
+
+    initScene();
+
+    glutDisplayFunc(display);
+    glutIdleFunc(update);
+    glutKeyboardFunc(KeyboardInput);
+
+    glutMainLoop();
+    return 0;
+}
