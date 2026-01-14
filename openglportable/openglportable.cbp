@@ -49,6 +49,8 @@
 		<Unit filename="airline.h" />
 		<Unit filename="background.cpp" />
 		<Unit filename="background.h" />
+		<Unit filename="bird.cpp" />
+		<Unit filename="bird.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="sky.cpp" />
 		<Unit filename="sky.h" />
