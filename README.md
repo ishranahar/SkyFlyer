@@ -85,6 +85,7 @@
 ### **Karima Akter**
 
 * Cloud and building design
+* Grass and flower design
 * Level Logic & speed control of drone, birds,  and aircraft
 * Object movement handling
 
@@ -98,7 +99,7 @@
  
 ### **MD. Nazib Mahbub Esam**
 
-* Grass and flower design
+
 * Keyboard control implementation
 * Sound system implementation
 
