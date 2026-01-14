@@ -1,11 +1,17 @@
 #include <GL/glut.h>
 #include "sky.h"
+#include "Cloud.h"
 #include "Drone.h"
 
+
+#define CLOUD_COUNT 4
 #define DRONE_COUNT 3
+
+
+Cloud clouds[CLOUD_COUNT];
 Drone drones[DRONE_COUNT];
 
-
+// DISPLAY
 void display()
 {
     glClear(GL_COLOR_BUFFER_BIT);
@@ -15,23 +21,26 @@ void display()
     drawSun();
 
 
+    drawClouds(clouds, CLOUD_COUNT);
+
+
     for(int i = 0; i < DRONE_COUNT; i++)
         drones[i].draw();
 
     glutSwapBuffers();
 }
 
-//  Update
+//  UPDATE
 void update()
 {
     updateSky();
+    updateClouds(clouds, CLOUD_COUNT);
 
     for(int i = 0; i < DRONE_COUNT; i++)
         drones[i].update();
-
 }
 
-// Timer  Function
+//  TIMER
 void timer(int)
 {
     update();
@@ -39,19 +48,24 @@ void timer(int)
     glutTimerFunc(16, timer, 0);
 }
 
-// Init Game
+//  INIT
 void init()
 {
-    glClearColor(0.6f, 0.8f, 1.0f, 1.0f);
+    glClearColor(0.0f, 0.0f, 0.1f, 1.0f);
 
+    // Sky
     initSky();
 
+    // Clouds
+    initClouds(clouds, CLOUD_COUNT);
+
+    // Drones
     drones[0] = Drone(1.2f,  0.3f, 0.35f);
     drones[1] = Drone(1.8f, -0.1f, 0.35f);
     drones[2] = Drone(2.4f,  0.1f, 0.35f);
 }
 
-//  Main Function
+//  MAIN
 int main(int argc, char** argv)
 {
     glutInit(&argc, argv);
@@ -67,5 +81,8 @@ int main(int argc, char** argv)
     glutMainLoop();
     return 0;
 }
+
+
+
 
 

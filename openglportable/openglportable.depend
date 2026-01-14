@@ -98,9 +98,10 @@
 
 1768378574 e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\drawline.h
 
-1768381830 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\main.cpp
+1768387454 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\main.cpp
 	<GL/glut.h>
 	"sky.h"
+	"Cloud.h"
 	"Drone.h"
 
 1768378574 e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\triangle.h
@@ -293,12 +294,13 @@
 
 1768378574 e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\circle.h
 
-1768378574 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\cloud.cpp
+1768386186 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\cloud.cpp
 	"Cloud.h"
 	<GL/glut.h>
-	<math.h>
+	<cmath>
+	<cstdlib>
 
-1768378574 e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\cloud.h
+1768386186 e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\cloud.h
 
 1768380917 e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\drone.h
 
@@ -307,8 +309,9 @@
 1768380695 e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\sky.h
 	<GL/glut.h>
 
-1768378574 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\sky.cpp
+1768387454 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\sky.cpp
 	"sky.h"
+	<GL/glut.h>
 	<cmath>
 
 1768380695 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\background.cpp
