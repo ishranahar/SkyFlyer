@@ -92,6 +92,7 @@
 
 * Drone design
 * Full Background  logic Design
+* Cloud & Drone Animation implementation
 * Score system implementation
 * Collision detection and game-over logic
  
