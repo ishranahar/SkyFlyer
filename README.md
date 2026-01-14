@@ -78,7 +78,7 @@
 ### **Tajmun Nahar Tisha**
 
 * Bird and enemy aircraft design
-* Dynamic sky background animation
+* Add sky background animation
 * Pause and restart functionality
 
 
