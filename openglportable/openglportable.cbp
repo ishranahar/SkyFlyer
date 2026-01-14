@@ -48,6 +48,8 @@
 		<Unit filename="drawdrone.cpp" />
 		<Unit filename="drawdrone.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="sky.cpp" />
+		<Unit filename="sky.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
