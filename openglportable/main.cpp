@@ -162,6 +162,12 @@ int main(int argc, char** argv) {
 #include <GL/glut.h>
 #include "sky.h"
 #include "Cloud.h"
+enum GameState {
+    RUNNING,
+    PAUSED
+};
+
+GameState gameState = RUNNING;
 
 // Global variables
 float coord_x = 0.0f;
@@ -187,16 +193,52 @@ void display()
 }
 
 // ---------- Keyboard ----------
-void KeyboardInput(unsigned char key, int, int)
+/*void KeyboardInput(unsigned char key, int, int)
 {
     if (key == 'l') coord_x += 0.05f;
     if (key == 'r') coord_x -= 0.05f;
 
     glutPostRedisplay();
 }
+*/
+void KeyboardInput(unsigned char key, int, int)
+{
+    // MOVE CLOUD (already have)
+    if (key == 'l') coord_x += 0.05f;
+    if (key == 'r') coord_x -= 0.05f;
+
+    // -------- PAUSE --------
+    if (key == 'p' || key == 'P')
+    {
+        gameState = PAUSED;
+    }
+
+    // -------- RESUME --------
+    if (key == 'c' || key == 'C')
+    {
+        gameState = RUNNING;
+    }
+
+    // -------- RESTART --------
+    if (key == 'R' || key == 'r')
+    {
+        gameState = RUNNING;
+
+        // reset sky
+        timeOfDay = 0.0f;
+        sunX = -1.2f;
+
+        // reset clouds
+        clouds[0] = {-0.6f, 0.6f, 0.0005f};
+        clouds[1] = {-0.05f, 0.8f, 0.0007f};
+        clouds[2] = { 0.6f, 0.5f, 0.0006f};
+    }
+
+    glutPostRedisplay();
+}
 
 // ---------- Update ----------
-void update()
+/*void update()
 {
     updateSky();
 
@@ -204,6 +246,22 @@ void update()
         clouds[i].x += clouds[i].speed;
         if (clouds[i].x > 1.4f)
             clouds[i].x = -1.4f;
+    }
+
+    glutPostRedisplay();
+}
+*/
+void update()
+{
+    if (gameState == RUNNING)
+    {
+        updateSky();
+
+        for (int i = 0; i < 3; i++) {
+            clouds[i].x += clouds[i].speed;
+            if (clouds[i].x > 1.4f)
+                clouds[i].x = -1.4f;
+        }
     }
 
     glutPostRedisplay();
