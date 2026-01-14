@@ -8,7 +8,7 @@ extern float sunX;
 
 void drawSky();
 void drawSun();
-void updateSky();   // sky animation only
+void updateSky();
 void initSky();
 
 #endif

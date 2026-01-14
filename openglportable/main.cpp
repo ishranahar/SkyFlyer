@@ -1,245 +1,71 @@
-/*#include <GL/glut.h>
-#include "Cloud.h"
-
-float coord_x = 0.0f;
-float coord_y = 0.0f;
-
-Cloud clouds[3];
-
-void display()
-{
-    glClear(GL_COLOR_BUFFER_BIT);
-
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-
-    glTranslatef(coord_x, coord_y, 0.0f);
-    drawClouds(clouds, 3);
-
-    glutSwapBuffers();
-}
-
-void KeyboardInput(unsigned char key, int x, int y)
-{
-    if (key == 'l')
-        coord_x += 0.05f;
-    if (key == 'r')
-        coord_x -= 0.05f;
-
-    glutPostRedisplay();
-}
-
-int main(int argc, char** argv)
-{
-    glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
-    glutInitWindowSize(2050, 1200);
-    glutCreateWindow("SkyFlyer - OpenGL OOP Project");
-
-    glClearColor(0.53f, 0.81f, 0.98f, 1.0f);
-
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-
-    glutDisplayFunc(display);
-    glutKeyboardFunc(KeyboardInput);
-
-    clouds[0].x = -0.6f; clouds[0].y = 0.6f; clouds[0].speed = 0.0f;
-    clouds[1].x = -0.05f; clouds[1].y = 0.8f; clouds[1].speed = 0.0f;
-    clouds[2].x =  0.6f; clouds[2].y = 0.5f; clouds[2].speed = 0.0f;
-
-    glutMainLoop();
-    return 0;
-}
-
-
-
-
-/*#include <GL/glut.h>
-#include "Triangle.h"
-#include "Polygon.h"
-#include "drawLine.h"
-#include "drawdrone.h"
-#include "airline.h"
-#include "bird.h"
-
-Airline airplane;
-Bird bird1(0.0f, 0.0f, 1.0f);
-
-
-void display() {
-    glClear(GL_COLOR_BUFFER_BIT);
-    airplane.draw();
-    bird1.draw();
-
-    glFlush();
-}
-
-int main(int argc, char** argv) {
-    glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
-    glutInitWindowSize(2050, 1200);
-    glutCreateWindow("SkyFlyer - OpenGL OOP Project ");
-
-    glClearColor(0.53f, 0.81f, 0.98f, 1.0f);
-    glutDisplayFunc(display);
-
-    glutMainLoop();
-    return 0;
-}
-
-
-
-
-
-/*#include <GL/glut.h>
-#include "Triangle.h"
-#include "Polygon.h"
-#include "drawLine.h"
-#include "drawdrone.h"
-#include "airline.h"
-
-Airline airplane;
-
-void display() {
-    glClear(GL_COLOR_BUFFER_BIT);
-
-    airplane.draw();
-
-    glFlush();
-}
-
-int main(int argc, char** argv) {
-    glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
-    glutInitWindowSize(2050, 1200);
-    glutCreateWindow("OpenGL Project (Merged)");
-
-    glClearColor(0.53f, 0.81f, 0.98f, 1.0f);
-
-    glutDisplayFunc(display);
-    glutMainLoop();
-
-    return 0;
-}*/
-
-//copy from github
-/*
-#include <GL/glut.h>
-#include "Triangle.h"
-#include "Polygon.h"
-#include"drawLine.h"
-#include"drawdrone.h"
-
-void display() {
-    glClear(GL_COLOR_BUFFER_BIT);
-
-
-    //drawTriangle();
-  //drawLine();
-
-    glColor3f(1.0f, 1.0f, 0.0f);
-    //drawPolygon();
-    drawDrone();
-
-    glFlush();
-}
-
-int main(int argc, char** argv) {
-    glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
-    glutInitWindowSize(600, 600);
-    glutCreateWindow("Triangle + Polygon");
-
-    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-
-    glutDisplayFunc(display);
-    glutMainLoop();
-
-    return 0;
-}
-*/
 #include <GL/glut.h>
 #include "sky.h"
-#include "Cloud.h"
+#include "Drone.h"
+
+#define DRONE_COUNT 3
+Drone drones[DRONE_COUNT];
 
 
-
-// Global variables
-float coord_x = 0.0f;
-float coord_y = 0.0f;
-
-Cloud clouds[3];
-
-// ---------- DISPLAY (ONLY HERE) ----------
 void display()
 {
     glClear(GL_COLOR_BUFFER_BIT);
 
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
 
     drawSky();
     drawSun();
 
-    glTranslatef(coord_x, coord_y, 0.0f);
-    drawClouds(clouds, 3);
+
+    for(int i = 0; i < DRONE_COUNT; i++)
+        drones[i].draw();
 
     glutSwapBuffers();
 }
 
-//---------- Keyboard ----------
-void KeyboardInput(unsigned char key, int, int)
-{
-    if (key == 'l') coord_x += 0.05f;
-    if (key == 'r') coord_x -= 0.05f;
-
-    glutPostRedisplay();
-}
-
-// ---------- Update ----------
+//  Update
 void update()
 {
     updateSky();
 
-    for (int i = 0; i < 3; i++) {
-        clouds[i].x += clouds[i].speed;
-        if (clouds[i].x > 1.4f)
-            clouds[i].x = -1.4f;
-    }
+    for(int i = 0; i < DRONE_COUNT; i++)
+        drones[i].update();
 
-    glutPostRedisplay();
 }
 
-
-// ---------- Init ----------
-void initScene()
+// Timer  Function
+void timer(int)
 {
+    update();
+    glutPostRedisplay();
+    glutTimerFunc(16, timer, 0);
+}
+
+// Init Game
+void init()
+{
+    glClearColor(0.6f, 0.8f, 1.0f, 1.0f);
+
     initSky();
 
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    gluOrtho2D(-1, 1, -1, 1);
-
-    clouds[0] = {-0.6f, 0.6f, 0.0005f};
-    clouds[1] = {-0.05f, 0.8f, 0.0007f};
-    clouds[2] = { 0.6f, 0.5f, 0.0006f};
+    drones[0] = Drone(1.2f,  0.3f, 0.35f);
+    drones[1] = Drone(1.8f, -0.1f, 0.35f);
+    drones[2] = Drone(2.4f,  0.1f, 0.35f);
 }
 
-// ---------- MAIN ----------
+//  Main Function
 int main(int argc, char** argv)
 {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
     glutInitWindowSize(1200, 800);
-    glutCreateWindow("SkyFlyer - Final Merged Version");
+    glutCreateWindow("SkyFlyer");
 
-    initScene();
+    init();
 
     glutDisplayFunc(display);
-    glutIdleFunc(update);
-    glutKeyboardFunc(KeyboardInput);
+    glutTimerFunc(0, timer, 0);
 
     glutMainLoop();
     return 0;
 }
+
+

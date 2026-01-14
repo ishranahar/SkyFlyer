@@ -4,13 +4,14 @@
 class Drone
 {
 public:
-    float x, y, scale;
+    float x, y;
+    float scale;
 
     Drone();
-    Drone(float x, float y, float s);
+    Drone(float x, float y, float scale);
 
+    void update();
     void draw();
 };
 
 #endif
-
