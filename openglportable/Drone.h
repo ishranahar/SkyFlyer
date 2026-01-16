@@ -6,11 +6,9 @@ class Drone
 public:
     float x, y, scale;
 
-    Drone();
-    Drone(float x, float y, float s);
-
+    Drone(float x=1.2f, float y=0.3f, float s=0.4f);
+    void update();
     void draw();
 };
 
 #endif
-

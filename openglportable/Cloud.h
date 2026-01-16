@@ -8,8 +8,11 @@ struct Cloud
     float speed;
 };
 
+void initClouds(Cloud clouds[], int count);
+void updateClouds(Cloud clouds[], int count);
 void drawCloud(float x, float y);
 void drawClouds(Cloud clouds[], int count);
 
 #endif
+
 

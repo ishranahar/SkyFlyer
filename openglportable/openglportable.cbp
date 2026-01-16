@@ -39,14 +39,24 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Bird.cpp" />
+		<Unit filename="Bird.h" />
 		<Unit filename="Circle.cpp" />
 		<Unit filename="Circle.h" />
 		<Unit filename="Cloud.cpp" />
 		<Unit filename="Cloud.h" />
+		<Unit filename="Drone.cpp" />
+		<Unit filename="Drone.h" />
+		<Unit filename="GameState.cpp" />
+		<Unit filename="GameState.h" />
+		<Unit filename="Polygon.cpp" />
+		<Unit filename="Polygon.h" />
+		<Unit filename="Tower.cpp" />
+		<Unit filename="Tower.h" />
 		<Unit filename="aeroplane.cpp" />
 		<Unit filename="airline.h" />
-		<Unit filename="drawdrone.cpp" />
-		<Unit filename="drawdrone.h" />
+		<Unit filename="background.cpp" />
+		<Unit filename="background.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="sky.cpp" />
 		<Unit filename="sky.h" />

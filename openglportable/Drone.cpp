@@ -1,84 +1,41 @@
+#include "Drone.h"
 #include <GL/glut.h>
-#include <cmath>
+#include "GameState.h"
 
-
-class Drone
+Drone::Drone(float x, float y, float s)
 {
-public:
-    float x, y;
-    float scale;
-
-    Drone() {}
-
-    Drone(float x, float y, float scale)
-    {
-        this->x = x;
-        this->y = y;
-        this->scale = scale;
-    }
-
-//Draw Circle
-static void drawCircle(float cx, float cy, float r)
-{
-    int segments = 100;
-    glBegin(GL_POLYGON);
-    for (int i = segments; i >= 0; i--)
-    {
-        float a = 2 * M_PI * i / segments;
-        glVertex2f(cx + r * cos(a), cy + r * sin(a));
-    }
-    glEnd();
+    this->x = x;
+    this->y = y;
+    scale = s;
 }
 
 
-    // Draw Drone
-   void draw()
+
+void Drone::update()
+{
+    x -= GAME_SPEED;
+
+    if (x < -1.6f)
+    {
+        x = 1.6f + (rand() % 100) / 100.0f;
+        y = -0.4f + (rand() % 80) / 100.0f;
+    }
+}
+
+
+void Drone::draw()
 {
     glPushMatrix();
-    glTranslatef(x, y, 0.0);
-    glScalef(scale, scale, 1.0);
+    glTranslatef(x,y,0);
+    glScalef(scale,scale,1);
 
-    // Body Top
-    glColor3f(0.35, 0.7, 0.8);
-    glBegin(GL_POLYGON);
-        glVertex2f(-0.12,  0.15);
-        glVertex2f( 0.12,  0.15);
-        glVertex2f( 0.18,  0.05);
-        glVertex2f(-0.18,  0.05);
+    glColor3f(0.3f,0.6f,0.9f);
+    glBegin(GL_QUADS);
+        glVertex2f(-0.2f,0.05f);
+        glVertex2f(0.2f,0.05f);
+        glVertex2f(0.15f,-0.05f);
+        glVertex2f(-0.15f,-0.05f);
     glEnd();
-
-    // Body Bottom
-    glColor3f(0.15, 0.35, 0.5);
-    glBegin(GL_POLYGON);
-        glVertex2f(-0.18,  0.05);
-        glVertex2f( 0.18,  0.05);
-        glVertex2f( 0.15, -0.10);
-        glVertex2f(-0.15, -0.10);
-    glEnd();
-
-    // Arms
-    glLineWidth(6);
-    glColor3f(0.1, 0.2, 0.3);
-    glBegin(GL_LINES);
-        glVertex2f(-0.15, 0.0);
-        glVertex2f(-0.35, 0.15);
-        glVertex2f( 0.15, 0.0);
-        glVertex2f( 0.35, 0.15);
-        glVertex2f(-0.15, 0.0);
-        glVertex2f(-0.35,-0.05);
-        glVertex2f( 0.15, 0.0);
-        glVertex2f( 0.35,-0.05);
-    glEnd();
-
-    // Circles Of Arms
-    glColor3f(0.2, 0.4, 0.5);
-    drawCircle(-0.35,  0.15, 0.06);
-    drawCircle( 0.35,  0.15, 0.06);
-    drawCircle(-0.35, -0.05, 0.06);
-    drawCircle( 0.35, -0.05, 0.06);
 
     glPopMatrix();
 }
-
-};
-
