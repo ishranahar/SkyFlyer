@@ -1,65 +1,74 @@
-#include "bird.h"
+#include "Bird.h"
 #include <GL/glut.h>
 #include <cmath>
 
-Bird::Bird(float xPos, float yPos, float s)
+Bird::Bird(float xPos, float yPos)
 {
     x = xPos;
     y = yPos;
-    scale = s;
-    wingAngle = 0.0f;
+    velocityY = 0.0f;
+    scale = 0.7f;
+    speedX = 0.0015f;
 }
 
 void Bird::update()
 {
-    wingAngle += 0.12f;
-    if (wingAngle > 2 * M_PI)
-        wingAngle = 0.0f;
+
+    velocityY -= 0.0008f;
+    y += velocityY;
+
+
+    x = -0.5f;
+
+
+    if (y < -0.85f) { y = -0.85f; velocityY = 0; }
+    if (y >  0.85f) { y =  0.85f; velocityY = 0; }
 }
+
 
 void Bird::draw()
 {
     glPushMatrix();
-    glTranslatef(x, y, 0.0f);
-    glScalef(scale, scale, 1.0f);
+    glTranslatef(x, y, 0);
+    glScalef(scale, scale, 1);
 
-    int segments = 60;
 
-    // BODY
-    float bodyR = 0.18f;
     glColor3f(1.0f, 0.9f, 0.0f);
     glBegin(GL_POLYGON);
-    for (int i = 0; i < segments; i++) {
-        float a = 2 * M_PI * i / segments;
-        glVertex2f(bodyR * cos(a), bodyR * sin(a));
+    for(int i = 0; i < 100; i++)
+    {
+        float a = 2 * 3.1416f * i / 100;
+        glVertex2f(0.18f * cos(a), 0.12f * sin(a));
     }
     glEnd();
 
-    // EYE
-    glColor3f(0, 0, 0);
+
+    glColor3f(1,1,1);
     glBegin(GL_POLYGON);
-    for (int i = 0; i < segments; i++) {
-        float a = 2 * M_PI * i / segments;
-        glVertex2f(0.04f * cos(a) + 0.06f,
-                   0.04f * sin(a) + 0.05f);
+    for(int i = 0; i < 50; i++)
+    {
+        float a = 2 * 3.1416f * i / 50;
+        glVertex2f(0.04f * cos(a) + 0.08f,
+                   0.04f * sin(a) + 0.04f);
     }
     glEnd();
 
-    // BEAK
+    glColor3f(0,0,0);
+    glBegin(GL_POLYGON);
+    for(int i = 0; i < 50; i++)
+    {
+        float a = 2 * 3.1416f * i / 50;
+        glVertex2f(0.02f * cos(a) + 0.09f,
+                   0.02f * sin(a) + 0.04f);
+    }
+    glEnd();
+
+
     glColor3f(1.0f, 0.5f, 0.0f);
     glBegin(GL_TRIANGLES);
-        glVertex2f(0.15f,  0.02f);
+        glVertex2f(0.18f,  0.02f);
         glVertex2f(0.28f,  0.00f);
-        glVertex2f(0.15f, -0.02f);
-    glEnd();
-
-    // WING
-    float flap = sin(wingAngle) * 0.06f;
-    glColor3f(1.0f, 0.85f, 0.0f);
-    glBegin(GL_TRIANGLES);
-        glVertex2f(-0.02f,  0.02f + flap);
-        glVertex2f(-0.22f, -0.04f);
-        glVertex2f(-0.02f, -0.12f - flap);
+        glVertex2f(0.18f, -0.02f);
     glEnd();
 
     glPopMatrix();
