@@ -1,0 +1,90 @@
+#include <GL/glut.h>
+#include "sky.h"
+#include "Cloud.h"
+#include "Drone.h"
+#include "bird.h"
+#include "interaction.h" 
+
+#define CLOUD_COUNT 4
+#define DRONE_COUNT 3
+#define BIRD_COUNT 2
+
+bool isPaused = false;
+Cloud clouds[CLOUD_COUNT];
+Drone drones[DRONE_COUNT];
+Bird birds[BIRD_COUNT];
+
+// DISPLAY
+void display()
+{
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    drawSky();
+    drawSun();
+
+    drawClouds(clouds, CLOUD_COUNT);
+
+    for (int i = 0; i < DRONE_COUNT; i++)
+        drones[i].draw();
+
+    birds[0].draw();
+
+    glutSwapBuffers();
+}
+
+// UPDATE
+void update()
+{
+    if (isPaused) return; 
+
+    updateSky();
+    updateClouds(clouds, CLOUD_COUNT);
+
+    for (int i = 0; i < DRONE_COUNT; i++)
+        drones[i].update();
+
+    birds[0].update();
+}
+
+// TIMER
+void timer(int)
+{
+    update();
+    glutPostRedisplay();
+    glutTimerFunc(16, timer, 0);
+}
+
+// INIT
+void init()
+{
+    glClearColor(0.5f, 0.8f, 1.0f, 1.0f);
+
+    initSky();
+    initClouds(clouds, CLOUD_COUNT);
+
+    drones[0] = Drone(1.2f,  0.3f, 0.35f);
+    drones[1] = Drone(1.8f, -0.1f, 0.35f);
+    drones[2] = Drone(2.4f,  0.1f, 0.35f);
+
+    birds[0] = Bird(-0.4f, 0.3f, 0.6f);
+}
+
+// MAIN
+int main(int argc, char** argv)
+{
+    glutInit(&argc, argv);
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
+    glutInitWindowSize(1200, 800);
+    glutCreateWindow("SkyFlyer");
+
+    init();
+
+    glutDisplayFunc(display);
+    glutTimerFunc(0, timer, 0);
+
+    glutKeyboardFunc(handleKeys);       // 'P' and 'R' keys
+    glutSpecialFunc(handleSpecialKeys); // Arrow keys
+
+    glutMainLoop();
+    return 0;
+}
