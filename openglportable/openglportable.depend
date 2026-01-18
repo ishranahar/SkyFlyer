@@ -51,15 +51,23 @@
 	<GL/glu.h>
 	<stdlib.h>
 
-1766006760 source:e:\desktop\cg project\skyflyer\openglportable\main.cpp
+1768727053 source:e:\desktop\cg project\skyflyer\openglportable\main.cpp
 	<GL/glut.h>
-	"Triangle.h"
-	"Polygon.h"
+	<cstdio>
+	<cstdlib>
+	"Bird.h"
+	"Drone.h"
+	"Tower.h"
+	"Flower.h"
+	"Grass.h"
+	"GameState.h"
+	"sky.h"
+	"Cloud.h"
 
-1766768283 e:\desktop\cg project\skyflyer\freeglut\include\gl\glut.h
+1768726133 e:\desktop\cg project\skyflyer\freeglut\include\gl\glut.h
 	"freeglut_std.h"
 
-1766768283 e:\desktop\cg project\skyflyer\freeglut\include\gl\freeglut_std.h
+1768726133 e:\desktop\cg project\skyflyer\freeglut\include\gl\freeglut_std.h
 	<windows.h>
 	<EGL/egl.h>
 	<GLES/gl.h>
@@ -76,7 +84,7 @@
 
 1766006760 e:\desktop\cg project\skyflyer\openglportable\triangle.h
 
-1766006760 e:\desktop\cg project\skyflyer\openglportable\polygon.h
+1768726133 e:\desktop\cg project\skyflyer\openglportable\polygon.h
 
 1766008247 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\openglportable\drawline.cpp
 	<GL/glut.h>
@@ -189,11 +197,11 @@
 
 1766215830 d:\aiub\fall 25-26\computer graphics\skyflyer\openglportable\bird.h
 
-1766768283 source:e:\desktop\cg project\skyflyer\openglportable\aeroplane.cpp
+1768726133 source:e:\desktop\cg project\skyflyer\openglportable\aeroplane.cpp
 	"airline.h"
 	<math.h>
 
-1766768283 e:\desktop\cg project\skyflyer\openglportable\airline.h
+1768726133 e:\desktop\cg project\skyflyer\openglportable\airline.h
 	<GL/glut.h>
 
 1766768283 source:e:\desktop\cg project\skyflyer\openglportable\drawdrone.cpp
@@ -201,7 +209,7 @@
 	<cmath>
 	"Drone.h"
 
-1766768283 e:\desktop\cg project\skyflyer\openglportable\drone.h
+1768726133 e:\desktop\cg project\skyflyer\openglportable\drone.h
 
 1766772632 source:f:\skyflyer\openglportable\aeroplane.cpp
 	"airline.h"
@@ -439,4 +447,78 @@
 	"GameState.h"
 	<GL/glut.h>
 	<cstdlib>
+
+1768726133 source:e:\desktop\cg project\skyflyer\openglportable\background.cpp
+	"background.h"
+	"sky.h"
+
+1768726133 e:\desktop\cg project\skyflyer\openglportable\background.h
+
+1768726133 e:\desktop\cg project\skyflyer\openglportable\sky.h
+	<GL/glut.h>
+
+1768726133 source:e:\desktop\cg project\skyflyer\openglportable\bird.cpp
+	"Bird.h"
+	<GL/glut.h>
+	<cmath>
+
+1768726133 e:\desktop\cg project\skyflyer\openglportable\bird.h
+
+1768726133 source:e:\desktop\cg project\skyflyer\openglportable\circle.cpp
+	"Circle.h"
+	<GL/glut.h>
+	<math.h>
+
+1768726133 e:\desktop\cg project\skyflyer\openglportable\circle.h
+
+1768726133 source:e:\desktop\cg project\skyflyer\openglportable\cloud.cpp
+	"Cloud.h"
+	<GL/glut.h>
+	<cmath>
+	<cstdlib>
+
+1768726133 e:\desktop\cg project\skyflyer\openglportable\cloud.h
+
+1768726133 source:e:\desktop\cg project\skyflyer\openglportable\drone.cpp
+	"Drone.h"
+	<GL/glut.h>
+	"GameState.h"
+
+1768726133 e:\desktop\cg project\skyflyer\openglportable\gamestate.h
+
+1768726133 source:e:\desktop\cg project\skyflyer\openglportable\gamestate.cpp
+	"GameState.h"
+	"Bird.h"
+	"Drone.h"
+
+1768727053 e:\desktop\cg project\skyflyer\openglportable\flower.h
+
+1768726133 e:\desktop\cg project\skyflyer\openglportable\tower.h
+
+1768726133 source:e:\desktop\cg project\skyflyer\openglportable\polygon.cpp
+	"Polygon.h"
+	<GL/glut.h>
+
+1768726133 source:e:\desktop\cg project\skyflyer\openglportable\sky.cpp
+	"sky.h"
+	<GL/glut.h>
+	<cmath>
+
+1768726133 source:e:\desktop\cg project\skyflyer\openglportable\tower.cpp
+	"Tower.h"
+	"GameState.h"
+	<GL/glut.h>
+	<cstdlib>
+
+1768727053 source:e:\desktop\cg project\skyflyer\openglportable\flower.cpp
+	"Flower.h"
+	<GL/glut.h>
+	<cmath>
+
+1768727053 source:e:\desktop\cg project\skyflyer\openglportable\grass.cpp
+	"Grass.h"
+	<GL/glut.h>
+	<cmath>
+
+1768727053 e:\desktop\cg project\skyflyer\openglportable\grass.h
 
