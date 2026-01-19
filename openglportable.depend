@@ -506,7 +506,7 @@
 	<GL/glut.h>
 	<cstdlib>
 
-1768834972 source:d:\skyflyer\skyflyer\openglportable\aeroplane.cpp
+1768848291 source:d:\skyflyer\skyflyer\openglportable\aeroplane.cpp
 	"airline.h"
 	<math.h>
 
@@ -536,7 +536,7 @@
 1768834972 d:\skyflyer\skyflyer\openglportable\sky.h
 	<GL/glut.h>
 
-1768838717 source:d:\skyflyer\skyflyer\openglportable\bird.cpp
+1768843650 source:d:\skyflyer\skyflyer\openglportable\bird.cpp
 	"Bird.h"
 	<GL/glut.h>
 	<cmath>
@@ -558,36 +558,38 @@
 
 1768834972 d:\skyflyer\skyflyer\openglportable\cloud.h
 
-1768839999 source:d:\skyflyer\skyflyer\openglportable\drone.cpp
+1768844324 source:d:\skyflyer\skyflyer\openglportable\drone.cpp
 	"Drone.h"
 	<GL/glut.h>
 	"GameState.h"
 	<cstdlib>
+	<cmath>
 
 1768839981 d:\skyflyer\skyflyer\openglportable\drone.h
 
-1768834972 d:\skyflyer\skyflyer\openglportable\gamestate.h
+1768845737 d:\skyflyer\skyflyer\openglportable\gamestate.h
 
-1768834972 source:d:\skyflyer\skyflyer\openglportable\flower.cpp
+1768842790 source:d:\skyflyer\skyflyer\openglportable\flower.cpp
 	"Flower.h"
 	<GL/glut.h>
 	<cmath>
 
 1768834972 d:\skyflyer\skyflyer\openglportable\flower.h
 
-1768834972 source:d:\skyflyer\skyflyer\openglportable\gamestate.cpp
+1768845737 source:d:\skyflyer\skyflyer\openglportable\gamestate.cpp
 	"GameState.h"
 	"Bird.h"
 	"Drone.h"
+	"Tower.h"
 
-1768834972 source:d:\skyflyer\skyflyer\openglportable\grass.cpp
+1768842620 source:d:\skyflyer\skyflyer\openglportable\grass.cpp
 	"Grass.h"
 	<GL/glut.h>
 	<cmath>
 
 1768834972 d:\skyflyer\skyflyer\openglportable\grass.h
 
-1768838242 source:d:\skyflyer\skyflyer\openglportable\main.cpp
+1768845860 source:d:\skyflyer\skyflyer\openglportable\main.cpp
 	<GL/glut.h>
 	<cstdio>
 	<cstdlib>
@@ -613,7 +615,7 @@
 	<GL/glut.h>
 	<cmath>
 
-1768838449 source:d:\skyflyer\skyflyer\openglportable\tower.cpp
+1768843735 source:d:\skyflyer\skyflyer\openglportable\tower.cpp
 	"Tower.h"
 	"GameState.h"
 	<GL/glut.h>

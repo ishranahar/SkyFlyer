@@ -7,7 +7,7 @@ Bird::Bird(float xPos, float yPos)
     x = xPos;
     y = yPos;
     velocityY = 0.0f;
-    scale = 0.5f;    // smaller size
+    scale = 0.35f;    // <-- পূর্বের 0.5 থেকে ছোট
     speedX = 0.0015f;
     wingAngle = 0.0f;
     wingUp = true;

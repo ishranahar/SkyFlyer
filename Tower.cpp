@@ -81,6 +81,14 @@ Tower::Tower(float x,float y,float w,float h){
     this->w = w;
     this->h = h;
 }
+void Tower::draw(){
+    glPushMatrix();
+    glTranslatef(x, y, 0);
+    glScalef(w, h * 1.5f, 1.0f);  // height 1.5 গুণ বড়
+    glColor3f(1.0f, 0.5f, 0.0f);
+    demoBuilding();
+    glPopMatrix();
+}
 
 void Tower::update(){
     x -= GAME_SPEED;
@@ -88,13 +96,4 @@ void Tower::update(){
     if (x + w < -1.2f){
         x = 1.2f;  // smooth reposition to right
     }
-}
-
-void Tower::draw(){
-    glPushMatrix();
-    glTranslatef(x, y, 0);
-    glScalef(w, h, 1.0f);  // scale width/height
-    glColor3f(1.0f, 0.5f, 0.0f); // tower color
-    demoBuilding();
-    glPopMatrix();
 }

@@ -11,11 +11,15 @@
 #include "sky.h"
 #include "Cloud.h"
 
+
 #define CLOUD_COUNT 4
 #define DRONE_COUNT 3
 #define TOWER_COUNT 3
 #define FLOWER_COUNT 6
-#define GRASS_COUNT 40
+#define GRASS_COUNT 200
+
+Grass grasses[GRASS_COUNT];
+
 
 Bird bird;
 Drone drones[DRONE_COUNT];
@@ -38,13 +42,14 @@ Flower flowers[FLOWER_COUNT] =
     Flower( 0.7f, -0.6f, 1,0.2f,0.6f)
 };
 
-Grass grasses[GRASS_COUNT];
 
 bool collision(float ax,float ay,float aw,float ah,
                float bx,float by,float bw,float bh)
 {
     return !(ax + aw < bx || ax > bx + bw ||
              ay + ah < by || ay > by + bh);
+
+
 }
 
 void drawText(float x, float y, const char* text)
@@ -54,6 +59,7 @@ void drawText(float x, float y, const char* text)
     while (*text)
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *text++);
 }
+
 
 void display()
 {
@@ -89,49 +95,53 @@ void display()
 
     glutSwapBuffers();
 }
-
 void update()
 {
-    updateSky();
-    updateClouds(clouds, CLOUD_COUNT);
-
     if (!paused && !gameOver)
     {
         bird.update();
 
-        for(int i = 0; i < TOWER_COUNT; i++)
-            towers[i].update();
+        // Update towers, drones, flowers, grass
+        for(int i = 0; i < TOWER_COUNT; i++) towers[i].update();
+        for(int i = 0; i < DRONE_COUNT; i++) drones[i].update();
+        for(int i = 0; i < FLOWER_COUNT; i++) flowers[i].update();
+        for(int i = 0; i < GRASS_COUNT; i++) grasses[i].update();
 
-        for(int i = 0; i < DRONE_COUNT; i++)
-            drones[i].update();
-
-        for (int i = 0; i < FLOWER_COUNT; i++)
-            flowers[i].update();
-
-        for (int i = 0; i < GRASS_COUNT; i++)
-            grasses[i].update();
-
+        // score, level, game speed
         score++;
         level = score / 400 + 1;
         GAME_SPEED = 0.002f + level * 0.0006f;
 
+        // ---------------- Collision with Towers ----------------
+        float birdWidth  = 0.12f * bird.scale;
+        float birdHeight = 0.12f * bird.scale;
+        float birdLeft   = bird.x - birdWidth / 2;
+        float birdBottom = bird.y - birdHeight / 2;
+
         for (int i = 0; i < TOWER_COUNT; i++)
         {
-            if (collision(
-                bird.x, bird.y, 0.12f, 0.12f,
-                towers[i].x, towers[i].y,
-                towers[i].w, towers[i].h))
+            float towerWidth  = towers[i].w;
+            float towerHeight = towers[i].h * 1.5f; // scaled in draw()
+            float towerLeft   = towers[i].x;
+            float towerBottom = towers[i].y;
+
+            if (collision(birdLeft, birdBottom, birdWidth, birdHeight,
+                          towerLeft, towerBottom, towerWidth, towerHeight))
             {
                 gameOver = true;
             }
         }
 
-        for(int i = 0; i < DRONE_COUNT; i++)
+        // ---------------- Collision with Drones ----------------
+        for (int i = 0; i < DRONE_COUNT; i++)
         {
-            if (collision(
-                bird.x, bird.y, 0.12f, 0.12f,
-                drones[i].x, drones[i].y,
-                0.25f, 0.12f))
+            float droneWidth  = 0.25f * drones[i].scale;
+            float droneHeight = 0.12f * drones[i].scale;
+            float droneLeft   = drones[i].x;
+            float droneBottom = drones[i].y;
+
+            if (collision(birdLeft, birdBottom, birdWidth, birdHeight,
+                          droneLeft, droneBottom, droneWidth, droneHeight))
             {
                 gameOver = true;
             }
@@ -139,10 +149,11 @@ void update()
     }
 }
 
-
 void timer(int)
 {
     update();
+
+
     glutPostRedisplay();
     glutTimerFunc(16, timer, 0);
 }
@@ -173,8 +184,9 @@ void init()
     float gx = -1.0f;
     for (int i = 0; i < GRASS_COUNT; i++)
     {
-        grasses[i] = Grass(gx, -0.7f, 0.04f + (i % 5) * 0.01f);
-        gx += 0.05f;
+        float randomHeight = 0.06f + (rand() % 3) * 0.01f;
+        grasses[i] = Grass(gx, -0.7f, randomHeight);
+        gx += 0.01f; // narrow spacing → no gap
     }
 }
 

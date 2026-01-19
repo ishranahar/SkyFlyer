@@ -38,7 +38,7 @@ void Flower::update()
     t += 0.01f;
     sway = sin(t + x * 10) * 0.01f;
 }
-
+/*
 void Flower::draw()
 {
     glColor3f(0, 0.6f, 0);
@@ -62,3 +62,31 @@ void Flower::draw()
     drawCircle(x, cy, 0.012f);
 }
 
+*/
+void Flower::draw()
+{
+    // Grass এর উপরে fixed position
+    float baseY = -0.7f; // Grass এর top এর প্রায় নিচের base
+    // Stem
+    glColor3f(0, 0.6f, 0); // green stem
+    glBegin(GL_QUADS);
+        glVertex2f(x - 0.005f, baseY);
+        glVertex2f(x + 0.005f, baseY);
+        glVertex2f(x + sway, baseY + 0.07f);
+        glVertex2f(x - sway, baseY + 0.07f);
+    glEnd();
+
+    float cy = baseY + 0.09f + sway; // Flower top
+
+    // Petals
+    glColor3f(r, g, b);
+    for (int i = 0; i < 7; i++)
+    {
+        float a = 2 * 3.1416f * i / 7;
+        drawCircle(x + cos(a) * 0.025f, cy + sin(a) * 0.025f, 0.015f);
+    }
+
+    // Center
+    glColor3f(1, 0.85f, 0);
+    drawCircle(x, cy, 0.012f);
+}
