@@ -14,7 +14,7 @@
 #include "Airline.h"
 Airline plane;
 #define CLOUD_COUNT 4
-#define DRONE_COUNT 5
+#define DRONE_COUNT 3
 
 const float GRASS_Y = -1.0f;
 const float GRASS_HEIGHT = 0.15f;
@@ -90,11 +90,15 @@ void display()
     sprintf(buf, "Score: %d   Level: %d", score, level);
     drawText(-0.95f, 0.9f, buf);
 
-    if (paused)
+    if (paused){
         drawText(-0.1f, 0.0f, "PAUSED");
+    }
 
-    if (gameOver)
+
+    if (gameOver){
         drawText(-0.35f, 0.0f, "GAME OVER - Press R");
+        sunX = -1.3f;
+    }
 
     glutSwapBuffers();
 }

@@ -736,3 +736,119 @@
 	<cstdlib>
 	<cmath>
 
+1768943716 source:e:\desktop\testcg\skyflyer\openglportable\aeroplane.cpp
+	"airline.h"
+	<GL/glut.h>
+	<cstdlib>
+	<cmath>
+
+1768943716 e:\desktop\testcg\skyflyer\openglportable\airline.h
+
+1768943716 e:\desktop\testcg\skyflyer\freeglut\include\gl\glut.h
+	"freeglut_std.h"
+
+1768943716 e:\desktop\testcg\skyflyer\freeglut\include\gl\freeglut_std.h
+	<windows.h>
+	<EGL/egl.h>
+	<GLES/gl.h>
+	<GLES2/gl2.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1768943716 source:e:\desktop\testcg\skyflyer\openglportable\background.cpp
+	"background.h"
+	"sky.h"
+
+1768943716 e:\desktop\testcg\skyflyer\openglportable\background.h
+
+1768943716 e:\desktop\testcg\skyflyer\openglportable\sky.h
+	<GL/glut.h>
+
+1768943716 source:e:\desktop\testcg\skyflyer\openglportable\bird.cpp
+	"Bird.h"
+	<GL/glut.h>
+	<cmath>
+
+1768943716 e:\desktop\testcg\skyflyer\openglportable\bird.h
+
+1768943716 source:e:\desktop\testcg\skyflyer\openglportable\circle.cpp
+	"Circle.h"
+	<GL/glut.h>
+	<math.h>
+
+1768943716 e:\desktop\testcg\skyflyer\openglportable\circle.h
+
+1768943716 source:e:\desktop\testcg\skyflyer\openglportable\cloud.cpp
+	"Cloud.h"
+	<GL/glut.h>
+	<cmath>
+	<cstdlib>
+
+1768943716 e:\desktop\testcg\skyflyer\openglportable\cloud.h
+
+1768943716 source:e:\desktop\testcg\skyflyer\openglportable\drone.cpp
+	"Drone.h"
+	<GL/glut.h>
+	"GameState.h"
+	<cmath>
+
+1768943716 e:\desktop\testcg\skyflyer\openglportable\drone.h
+
+1768943716 e:\desktop\testcg\skyflyer\openglportable\gamestate.h
+
+1768943716 source:e:\desktop\testcg\skyflyer\openglportable\flower.cpp
+	"Flower.h"
+	<GL/glut.h>
+	<cmath>
+
+1768943716 e:\desktop\testcg\skyflyer\openglportable\flower.h
+
+1768943716 source:e:\desktop\testcg\skyflyer\openglportable\gamestate.cpp
+	"GameState.h"
+	"Bird.h"
+	"Drone.h"
+
+1768943716 source:e:\desktop\testcg\skyflyer\openglportable\grass.cpp
+	"Grass.h"
+	"GameState.h"
+	<GL/glut.h>
+
+1768943716 e:\desktop\testcg\skyflyer\openglportable\grass.h
+
+1768943716 source:e:\desktop\testcg\skyflyer\openglportable\main.cpp
+	<GL/glut.h>
+	<cstdio>
+	<cstdlib>
+	"Bird.h"
+	"Drone.h"
+	"Tower.h"
+	"Flower.h"
+	"Grass.h"
+	"GameState.h"
+	"sky.h"
+	"Cloud.h"
+	"Airline.h"
+
+1768943716 e:\desktop\testcg\skyflyer\openglportable\tower.h
+
+1768943716 source:e:\desktop\testcg\skyflyer\openglportable\polygon.cpp
+	"Polygon.h"
+	<GL/glut.h>
+
+1768943716 e:\desktop\testcg\skyflyer\openglportable\polygon.h
+
+1768943716 source:e:\desktop\testcg\skyflyer\openglportable\sky.cpp
+	"sky.h"
+	<GL/glut.h>
+	<cmath>
+
+1768943716 source:e:\desktop\testcg\skyflyer\openglportable\tower.cpp
+	"Tower.h"
+	"GameState.h"
+	<GL/glut.h>
+	<cstdlib>
+	<cmath>
+
