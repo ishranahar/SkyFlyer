@@ -33,15 +33,15 @@ void Bird::draw()
     glTranslatef(x, y, 0);
     glScalef(scale * 0.6f, scale * 0.6f, 1);
 
-
-    glColor3f(0.65f, 0.65f, 0.55f);
+   glColor3f(1.0f, 0.9f, 0.2f);
+   // glColor3f(0.65f, 0.65f, 0.55f);
     glBegin(GL_TRIANGLES);
         glVertex2f(-0.12f, 0.0f);
         glVertex2f(-0.22f, 0.05f);
         glVertex2f(-0.20f, -0.05f);
     glEnd();
-
-    glColor3f(0.75f, 0.75f, 0.65f);
+   glColor3f(1.0f, 0.9f, 0.2f);
+    //glColor3f(0.75f, 0.75f, 0.65f);
     glBegin(GL_POLYGON);
     for (int i = 0; i < 100; i++)
     {
@@ -58,7 +58,8 @@ void Bird::draw()
         glRotatef(wingAngle, 1, 0, 0);
         glTranslatef(0.05f, 0.0f, 0.0f);
 
-        glColor3f(0.55f, 0.55f, 0.45f);
+       // glColor3f(0.55f, 0.55f, 0.45f);
+          glColor3f(1.0f, 1.0f, 0.0f);
         glBegin(GL_POLYGON);
             glVertex2f(-0.05f, 0.0f);
             glVertex2f(0.02f, 0.18f);
@@ -78,7 +79,7 @@ void Bird::draw()
     glEnd();
 
 
-    glColor3f(1.0f, 0.9f, 0.2f);
+    glColor3f(1.0f, 0.0f, 0.0f);
     glBegin(GL_TRIANGLES);
         glVertex2f(0.14f, 0.03f);
         glVertex2f(0.20f, 0.00f);
