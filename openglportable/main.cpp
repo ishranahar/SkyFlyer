@@ -90,11 +90,17 @@ void display()
     sprintf(buf, "Score: %d   Level: %d", score, level);
     drawText(-0.95f, 0.9f, buf);
 
-    if (paused)
-        drawText(-0.1f, 0.0f, "PAUSED");
+    if (paused){
+         drawText(-0.1f, 0.0f, "PAUSED");
+         sunX = -1.3f;
 
-    if (gameOver)
+    }
+
+
+    if (gameOver){
         drawText(-0.35f, 0.0f, "GAME OVER - Press R");
+        sunX = -1.3f;
+    }
 
     glutSwapBuffers();
 }

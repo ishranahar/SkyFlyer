@@ -506,12 +506,13 @@
 	<GL/glut.h>
 	<cstdlib>
 
-1768910938 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\skyflyer\openglportable\aeroplane.cpp
+1768940545 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\skyflyer\openglportable\aeroplane.cpp
 	"airline.h"
-	<math.h>
-
-1768859999 e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\skyflyer\openglportable\airline.h
 	<GL/glut.h>
+	<cstdlib>
+	<cmath>
+
+1768940545 e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\skyflyer\openglportable\airline.h
 
 1768859999 e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\skyflyer\freeglut\include\gl\glut.h
 	"freeglut_std.h"
@@ -527,16 +528,16 @@
 	<GL/glu.h>
 	<stdlib.h>
 
-1768859999 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\skyflyer\openglportable\background.cpp
+1768940535 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\skyflyer\openglportable\background.cpp
 	"background.h"
 	"sky.h"
 
-1768859999 e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\skyflyer\openglportable\background.h
+1768940535 e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\skyflyer\openglportable\background.h
 
 1768859999 e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\skyflyer\openglportable\sky.h
 	<GL/glut.h>
 
-1768910938 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\skyflyer\openglportable\bird.cpp
+1768940545 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\skyflyer\openglportable\bird.cpp
 	"Bird.h"
 	<GL/glut.h>
 	<cmath>
@@ -558,7 +559,7 @@
 
 1768859999 e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\skyflyer\openglportable\cloud.h
 
-1768910938 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\skyflyer\openglportable\drone.cpp
+1768940535 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\skyflyer\openglportable\drone.cpp
 	"Drone.h"
 	<GL/glut.h>
 	"GameState.h"
@@ -568,26 +569,26 @@
 
 1768859999 e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\skyflyer\openglportable\gamestate.h
 
-1768910938 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\skyflyer\openglportable\flower.cpp
+1768940545 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\skyflyer\openglportable\flower.cpp
 	"Flower.h"
 	<GL/glut.h>
 	<cmath>
 
 1768861637 e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\skyflyer\openglportable\flower.h
 
-1768859999 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\skyflyer\openglportable\gamestate.cpp
+1768931159 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\skyflyer\openglportable\gamestate.cpp
 	"GameState.h"
 	"Bird.h"
 	"Drone.h"
 
-1768918654 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\skyflyer\openglportable\grass.cpp
+1768940545 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\skyflyer\openglportable\grass.cpp
 	"Grass.h"
 	"GameState.h"
 	<GL/glut.h>
 
 1768861637 e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\skyflyer\openglportable\grass.h
 
-1768910938 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\skyflyer\openglportable\main.cpp
+1768940545 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\skyflyer\openglportable\main.cpp
 	<GL/glut.h>
 	<cstdio>
 	<cstdlib>
@@ -599,6 +600,7 @@
 	"GameState.h"
 	"sky.h"
 	"Cloud.h"
+	"Airline.h"
 
 1768861637 e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\skyflyer\openglportable\tower.h
 
@@ -608,12 +610,12 @@
 
 1768859999 e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\skyflyer\openglportable\polygon.h
 
-1768859999 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\skyflyer\openglportable\sky.cpp
+1768940535 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\skyflyer\openglportable\sky.cpp
 	"sky.h"
 	<GL/glut.h>
 	<cmath>
 
-1768910938 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\skyflyer\openglportable\tower.cpp
+1768932327 source:e:\desktop\aiub\fall25-26\cg\ft\project doc\main project\skyflyer\skyflyer\openglportable\tower.cpp
 	"Tower.h"
 	"GameState.h"
 	<GL/glut.h>
