@@ -1,29 +1,47 @@
 #include <GL/glut.h>
 #include <cstdio>
 #include <cstdlib>
+
 #include "Bird.h"
 #include "Drone.h"
 #include "Tower.h"
+#include "Flower.h"
+#include "Grass.h"
 #include "GameState.h"
 #include "sky.h"
 #include "Cloud.h"
 
-
+/* ================= CONFIG ================= */
 #define CLOUD_COUNT 4
 #define DRONE_COUNT 3
 
+const float GRASS_Y = -0.9f;
+const float GRASS_HEIGHT = 0.15f;
+const float GROUND_Y = GRASS_Y + GRASS_HEIGHT;
 
+/* ================= OBJECTS ================= */
 Bird bird;
 Drone drones[DRONE_COUNT];
 Cloud clouds[CLOUD_COUNT];
 
-Tower towers[3] = {
-    Tower(-0.7f, -0.6f, 0.2f, 0.3f),
-    Tower(-0.1f, -0.6f, 0.2f, 0.5f),
-    Tower( 0.5f, -0.6f, 0.2f, 0.7f)
-};
+Grass grass(GRASS_Y);
 
+/* ---------- Towers on grass ---------- */
+Tower tower1(-0.85f, GROUND_Y, 0.18f, 0.35f);
+Tower tower2(-0.35f, GROUND_Y, 0.20f, 0.50f);
+Tower tower3( 0.20f, GROUND_Y, 0.18f, 0.45f);
+Tower tower4( 0.70f, GROUND_Y, 0.20f, 0.60f);
 
+/* ---------- Flowers on grass ---------- */
+Flower flower1(-0.95f, GROUND_Y);
+Flower flower2(-0.55f, GROUND_Y);
+Flower flower3(-0.05f, GROUND_Y);
+Flower flower4( 0.45f, GROUND_Y);
+Flower flower5( 0.85f, GROUND_Y);
+
+bool birdOnGround = false;
+
+/* ================= COLLISION ================= */
 bool collision(float ax,float ay,float aw,float ah,
                float bx,float by,float bw,float bh)
 {
@@ -31,7 +49,7 @@ bool collision(float ax,float ay,float aw,float ah,
              ay + ah < by || ay > by + bh);
 }
 
-
+/* ================= TEXT ================= */
 void drawText(float x, float y, const char* text)
 {
     glColor3f(1,1,1);
@@ -40,29 +58,32 @@ void drawText(float x, float y, const char* text)
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *text++);
 }
 
-
+/* ================= DISPLAY ================= */
 void display()
 {
     glClear(GL_COLOR_BUFFER_BIT);
 
-
     drawSky();
     drawSun();
-
-
     drawClouds(clouds, CLOUD_COUNT);
 
+    grass.draw();
 
-    for (int i = 0; i < 3; i++)
-        towers[i].draw();
+    flower1.draw();
+    flower2.draw();
+    flower3.draw();
+    flower4.draw();
+    flower5.draw();
 
+    tower1.draw();
+    tower2.draw();
+    tower3.draw();
+    tower4.draw();
 
     bird.draw();
 
-
     for(int i = 0; i < DRONE_COUNT; i++)
         drones[i].draw();
-
 
     char buf[80];
     sprintf(buf, "Score: %d   Level: %d", score, level);
@@ -72,58 +93,69 @@ void display()
         drawText(-0.1f, 0.0f, "PAUSED");
 
     if (gameOver)
-        drawText(-0.3f, 0.0f, "GAME OVER - Press R");
+        drawText(-0.35f, 0.0f, "GAME OVER - Press R");
 
     glutSwapBuffers();
 }
 
-
+/* ================= UPDATE ================= */
 void update()
 {
-
     updateSky();
-
-
     updateClouds(clouds, CLOUD_COUNT);
 
     if (!paused && !gameOver)
     {
         bird.update();
+        grass.update();
 
-for(int i = 0; i < 3; i++)
-    towers[i].update();
-
+        tower1.update();
+        tower2.update();
+        tower3.update();
+        tower4.update();
 
         for(int i = 0; i < DRONE_COUNT; i++)
             drones[i].update();
 
-        score++;
+        /* ---------- Ground logic ---------- */
+        float birdHalfH = 0.12f * bird.scale;
+
+        if (bird.y - birdHalfH <= GROUND_Y)
+        {
+            birdOnGround = true;
+            bird.velocityY = 0;
+            bird.y = GROUND_Y + birdHalfH;
+        }
+        else
+        {
+            birdOnGround = false;
+        }
+
+        /* ---------- Score only in air ---------- */
+        if (!birdOnGround)
+            score++;
+
         level = score / 400 + 1;
         GAME_SPEED = 0.002f + level * 0.0006f;
 
-
-        for (int i = 0; i < 3; i++)
+        /* ---------- Tower collision ---------- */
+        if (
+            collision(bird.x,bird.y,0.12f,0.12f, tower1.x,tower1.y,tower1.w,tower1.h) ||
+            collision(bird.x,bird.y,0.12f,0.12f, tower2.x,tower2.y,tower2.w,tower2.h) ||
+            collision(bird.x,bird.y,0.12f,0.12f, tower3.x,tower3.y,tower3.w,tower3.h) ||
+            collision(bird.x,bird.y,0.12f,0.12f, tower4.x,tower4.y,tower4.w,tower4.h)
+           )
         {
-for (int i = 0; i < 3; i++)
-{
-    if (collision(
-        bird.x, bird.y, 0.12f, 0.12f,
-        towers[i].x, towers[i].y, towers[i].w, towers[i].h
-    ))
-    {
-        gameOver = true;
-    }
-}
-
-
+            gameOver = true;
         }
 
-
+        /* ---------- Drone collision ---------- */
         for(int i = 0; i < DRONE_COUNT; i++)
         {
             if (collision(
                 bird.x, bird.y, 0.12f, 0.12f,
-                drones[i].x, drones[i].y, 0.25f, 0.12f))
+                drones[i].x, drones[i].y,
+                0.25f, 0.12f))
             {
                 gameOver = true;
             }
@@ -131,7 +163,7 @@ for (int i = 0; i < 3; i++)
     }
 }
 
-
+/* ================= TIMER ================= */
 void timer(int)
 {
     update();
@@ -139,7 +171,7 @@ void timer(int)
     glutTimerFunc(16, timer, 0);
 }
 
-
+/* ================= KEYBOARD ================= */
 void keyboard(unsigned char key, int, int)
 {
     switch(key)
@@ -152,7 +184,7 @@ void keyboard(unsigned char key, int, int)
     }
 }
 
-
+/* ================= INIT ================= */
 void init()
 {
     glClearColor(0.0f, 0.0f, 0.05f, 1.0f);
@@ -160,13 +192,12 @@ void init()
     initSky();
     initClouds(clouds, CLOUD_COUNT);
 
-
     drones[0] = Drone(1.2f,  0.3f, 0.35f);
     drones[1] = Drone(1.8f, -0.1f, 0.35f);
     drones[2] = Drone(2.4f,  0.1f, 0.35f);
 }
 
-
+/* ================= MAIN ================= */
 int main(int argc, char** argv)
 {
     glutInit(&argc, argv);
@@ -183,4 +214,3 @@ int main(int argc, char** argv)
     glutMainLoop();
     return 0;
 }
-

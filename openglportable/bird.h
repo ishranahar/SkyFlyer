@@ -8,6 +8,7 @@ public:
     float velocityY;
     float scale;
     float speedX;
+    float wingAngle; // Added for animation state
 
     Bird(float xPos = -0.5f, float yPos = 0.0f);
 
@@ -16,6 +17,5 @@ public:
 };
 
 #endif
-
 
 

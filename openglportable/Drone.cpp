@@ -1,6 +1,7 @@
 #include "Drone.h"
 #include <GL/glut.h>
 #include "GameState.h"
+#include <cmath>
 
 Drone::Drone(float x, float y, float s)
 {
@@ -8,8 +9,6 @@ Drone::Drone(float x, float y, float s)
     this->y = y;
     scale = s;
 }
-
-
 
 void Drone::update()
 {
@@ -22,20 +21,96 @@ void Drone::update()
     }
 }
 
-
 void Drone::draw()
 {
     glPushMatrix();
-    glTranslatef(x,y,0);
-    glScalef(scale,scale,1);
+    glTranslatef(x, y, 0);
+    glScalef(scale, scale, 1);
 
-    glColor3f(0.3f,0.6f,0.9f);
-    glBegin(GL_QUADS);
-        glVertex2f(-0.2f,0.05f);
-        glVertex2f(0.2f,0.05f);
-        glVertex2f(0.15f,-0.05f);
-        glVertex2f(-0.15f,-0.05f);
+    // --- Colors ---
+    float darkGrey[3] = {0.2f, 0.22f, 0.25f};
+    float midGrey[3] = {0.35f, 0.38f, 0.42f};
+    float yellow[3] = {1.0f, 0.8f, 0.0f};
+
+    // --- 1. Structural Arms (X-shape) ---
+    glColor3fv(midGrey);
+    glLineWidth(4.0f);
+    glBegin(GL_LINES);
+        glVertex2f(-0.25f, 0.15f);  glVertex2f(0.25f, -0.15f); // Top-left to Bottom-right
+        glVertex2f(0.25f, 0.15f);   glVertex2f(-0.25f, -0.15f); // Top-right to Bottom-left
     glEnd();
+
+    // --- 2. Main Body (Sleek Hexagon/Oval) ---
+    glColor3fv(darkGrey);
+    glBegin(GL_POLYGON);
+        glVertex2f(-0.15f, 0.08f);
+        glVertex2f(0.12f, 0.08f);
+        glVertex2f(0.18f, 0.02f);
+        glVertex2f(0.15f, -0.06f);
+        glVertex2f(-0.12f, -0.06f);
+        glVertex2f(-0.18f, 0.02f);
+    glEnd();
+
+    // Body Accent (Light highlight on top)
+    glColor3f(0.45f, 0.48f, 0.52f);
+    glBegin(GL_QUADS);
+        glVertex2f(-0.10f, 0.05f);
+        glVertex2f(0.08f, 0.05f);
+        glVertex2f(0.06f, 0.02f);
+        glVertex2f(-0.08f, 0.02f);
+    glEnd();
+
+    // --- 3. Camera (Front-Bottom) ---
+    glColor3f(0.1f, 0.1f, 0.1f);
+    // Camera Gimbal
+    glBegin(GL_POLYGON);
+    for(int i=0; i<20; i++){
+        float a = i * 2.0f * 3.14159f / 20;
+        glVertex2f(0.04f * cos(a) - 0.05f, 0.04f * sin(a) - 0.08f);
+    }
+    glEnd();
+
+    // --- 4. Rotors / Propellers ---
+    float rotorSpeed = glutGet(GLUT_ELAPSED_TIME) * 0.8f; // Animation logic
+    float rotorOffsets[4][2] = {
+        {-0.25f, 0.15f}, {0.25f, 0.15f},
+        {-0.25f, -0.15f}, {0.25f, -0.15f}
+    };
+
+    for (int i = 0; i < 4; ++i)
+    {
+        glPushMatrix();
+        glTranslatef(rotorOffsets[i][0], rotorOffsets[i][1], 0);
+
+        // Rotor Base (The motor)
+        glColor3f(0.5f, 0.5f, 0.5f);
+        glBegin(GL_POLYGON);
+        for(int j=0; j<10; j++){
+            float a = j * 2.0f * 3.14159f / 10;
+            glVertex2f(0.025f * cos(a), 0.025f * sin(a));
+        }
+        glEnd();
+
+        // Spinning Blades
+        glRotatef(rotorSpeed + (i * 90), 0, 0, 1);
+        glColor3f(0.1f, 0.1f, 0.1f);
+
+        // Draw two thin blades
+        glBegin(GL_QUADS);
+            // Blade 1
+            glVertex2f(-0.12f, 0.015f); glVertex2f(0.12f, 0.015f);
+            glVertex2f(0.12f, -0.015f); glVertex2f(-0.12f, -0.015f);
+        glEnd();
+
+        // Tiny yellow tips for detail
+        glColor3fv(yellow);
+        glBegin(GL_POINTS);
+            glVertex2f(0.11f, 0.0f);
+            glVertex2f(-0.11f, 0.0f);
+        glEnd();
+
+        glPopMatrix();
+    }
 
     glPopMatrix();
 }

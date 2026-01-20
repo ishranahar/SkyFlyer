@@ -6,11 +6,9 @@ class Tower
 public:
     float x, y, w, h;
 
-    Tower(float x, float y, float w, float h);
-
+    Tower(float x, float groundY, float w, float h);
     void update();
     void draw();
 };
 
 #endif
-
