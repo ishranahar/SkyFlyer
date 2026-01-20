@@ -16,7 +16,7 @@ Airline plane;
 #define CLOUD_COUNT 4
 #define DRONE_COUNT 5
 
-const float GRASS_Y = -0.9f;
+const float GRASS_Y = -1.0f;
 const float GRASS_HEIGHT = 0.15f;
 const float GROUND_Y = GRASS_Y + GRASS_HEIGHT;
 
