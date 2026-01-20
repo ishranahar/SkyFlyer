@@ -71,6 +71,16 @@
   * Paused
   * Game Over
 
+## ⚠️ Sound Setup Instructions (Important!)
+To run the game with sound, you must link the Windows Multimedia Library in Code::Blocks.
+
+**Steps to fix "undefined reference to PlaySound":**
+1. In Code::Blocks, go to the top menu: **Project** -> **Build options...**
+2. Click on the **"Linker settings"** tab.
+3. Under "Link libraries", click the **Add** button.
+4. Type: `winmm`
+5. Click **OK**.
+   
 ---
 
 ## 👥 Team Member Responsibilities
