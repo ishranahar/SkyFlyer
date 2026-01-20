@@ -139,6 +139,7 @@ void update()
         GAME_SPEED = 0.002f + level * 0.0006f;
 
         // Tower collision
+        /*
         if (
             collision(bird.x,bird.y,0.12f,0.12f, tower1.x,tower1.y,tower1.w,tower1.h) ||
             collision(bird.x,bird.y,0.12f,0.12f, tower2.x,tower2.y,tower2.w,tower2.h) ||
@@ -148,6 +149,7 @@ void update()
         {
             gameOver = true;
         }
+        */
 
         // Drone collision
         for(int i = 0; i < DRONE_COUNT; i++)
