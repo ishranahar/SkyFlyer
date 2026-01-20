@@ -25,8 +25,7 @@ void Bird::update()
 
 void Bird::draw()
 {
-    // Calculate wing flap angle based on time
-    // 0.01f controls the speed, 25.0f controls the range of the flap
+
     float time = glutGet(GLUT_ELAPSED_TIME) * 0.01f;
     wingAngle = sin(time) * 25.0f;
 
@@ -34,7 +33,7 @@ void Bird::draw()
     glTranslatef(x, y, 0);
     glScalef(scale * 0.6f, scale * 0.6f, 1);
 
-    // --- Tail ---
+
     glColor3f(0.65f, 0.65f, 0.55f);
     glBegin(GL_TRIANGLES);
         glVertex2f(-0.12f, 0.0f);
@@ -42,7 +41,6 @@ void Bird::draw()
         glVertex2f(-0.20f, -0.05f);
     glEnd();
 
-    // --- Body ---
     glColor3f(0.75f, 0.75f, 0.65f);
     glBegin(GL_POLYGON);
     for (int i = 0; i < 100; i++)
@@ -53,23 +51,23 @@ void Bird::draw()
     }
     glEnd();
 
-    // --- Animated Wing ---
+
     glPushMatrix();
-        // Move rotation point to where the wing attaches to the body
+
         glTranslatef(-0.05f, 0.0f, 0.0f);
-        glRotatef(wingAngle, 1, 0, 0); // Rotate around X-axis for a flapping effect
-        glTranslatef(0.05f, 0.0f, 0.0f); // Move back
+        glRotatef(wingAngle, 1, 0, 0);
+        glTranslatef(0.05f, 0.0f, 0.0f);
 
         glColor3f(0.55f, 0.55f, 0.45f);
         glBegin(GL_POLYGON);
-            glVertex2f(-0.05f, 0.0f);   // Wing Base
-            glVertex2f(0.02f, 0.18f);   // Wing Tip
+            glVertex2f(-0.05f, 0.0f);
+            glVertex2f(0.02f, 0.18f);
             glVertex2f(-0.08f, 0.22f);
             glVertex2f(-0.12f, 0.10f);
         glEnd();
     glPopMatrix();
 
-    // --- Eye ---
+    //  Eye
     glColor3f(0.2f, 0.1f, 0.0f);
     glBegin(GL_POLYGON);
     for (int i = 0; i < 30; i++)
@@ -79,7 +77,7 @@ void Bird::draw()
     }
     glEnd();
 
-    // --- Beak ---
+    //  Beak
     glColor3f(1.0f, 0.9f, 0.2f);
     glBegin(GL_TRIANGLES);
         glVertex2f(0.14f, 0.03f);

@@ -7,7 +7,7 @@
 Tower::Tower(float xPos, float groundY, float width, float height)
 {
     x = xPos;
-    y = groundY;   // Bottom of the tower
+    y = groundY;
     w = width;
     h = height;
 }
@@ -24,24 +24,23 @@ void Tower::update()
 
 void Tower::draw()
 {
-    // Color Palette: Deep Red/Brown for the structure
+
     float r = 0.6f, g = 0.1f, b = 0.1f;
-    // Lighter shade for highlights/accents
+
     float r2 = 0.8f, g2 = 0.4f, b2 = 0.3f;
 
     float centerX = x + w / 2.0f;
 
-    // --- 1. Base Section (Wide Trapezoid) ---
+
     glColor3f(r, g, b);
     glBegin(GL_QUADS);
-        glVertex2f(x, y);                   // Bottom Left
-        glVertex2f(x + w, y);               // Bottom Right
-        glVertex2f(x + w * 0.75f, y + h * 0.3f); // Top Right
-        glVertex2f(x + w * 0.25f, y + h * 0.3f); // Top Left
+        glVertex2f(x, y);
+        glVertex2f(x + w, y);
+        glVertex2f(x + w * 0.75f, y + h * 0.3f);
+        glVertex2f(x + w * 0.25f, y + h * 0.3f);
     glEnd();
 
-    // --- 2. Base Arch (Cutting into the Base) ---
-    // We draw this in a background-like color or a lighter accent to simulate the arch
+
     glColor3f(r2, g2, b2);
     glBegin(GL_POLYGON);
     for (int i = 0; i <= 180; i++) {
@@ -52,7 +51,7 @@ void Tower::draw()
     }
     glEnd();
 
-    // --- 3. Middle Section ---
+
     glColor3f(r, g, b);
     glBegin(GL_QUADS);
         glVertex2f(x + w * 0.28f, y + h * 0.3f);
@@ -61,7 +60,7 @@ void Tower::draw()
         glVertex2f(x + w * 0.38f, y + h * 0.6f);
     glEnd();
 
-    // --- 4. Top Section (Narrowing to Top) ---
+
     glBegin(GL_QUADS);
         glVertex2f(x + w * 0.42f, y + h * 0.6f);
         glVertex2f(x + w * 0.58f, y + h * 0.6f);
@@ -69,8 +68,7 @@ void Tower::draw()
         glVertex2f(centerX - w * 0.05f, y + h * 0.9f);
     glEnd();
 
-    // --- 5. Tip & Antenna ---
-    // The "Dome" top
+
     glBegin(GL_POLYGON);
     for (int i = 0; i < 360; i += 30) {
         float rad = i * 3.14159f / 180.0f;
@@ -78,20 +76,20 @@ void Tower::draw()
     }
     glEnd();
 
-    // The Antenna needle
+
     glLineWidth(2.0f);
     glBegin(GL_LINES);
         glVertex2f(centerX, y + h * 0.95f);
         glVertex2f(centerX, y + h * 1.0f);
     glEnd();
 
-    // --- 6. Horizontal Balconies (Detail Lines) ---
-    glColor3f(0.3f, 0.05f, 0.05f); // Darker color for lines
+
+    glColor3f(0.3f, 0.05f, 0.05f);
     glBegin(GL_LINES);
-        // First Balcony
+
         glVertex2f(x + w * 0.25f, y + h * 0.3f);
         glVertex2f(x + w * 0.75f, y + h * 0.3f);
-        // Second Balcony
+
         glVertex2f(x + w * 0.38f, y + h * 0.6f);
         glVertex2f(x + w * 0.62f, y + h * 0.6f);
     glEnd();

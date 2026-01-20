@@ -27,20 +27,20 @@ void Drone::draw()
     glTranslatef(x, y, 0);
     glScalef(scale, scale, 1);
 
-    // --- Colors ---
+
     float darkGrey[3] = {0.2f, 0.22f, 0.25f};
     float midGrey[3] = {0.35f, 0.38f, 0.42f};
     float yellow[3] = {1.0f, 0.8f, 0.0f};
 
-    // --- 1. Structural Arms (X-shape) ---
+
     glColor3fv(midGrey);
     glLineWidth(4.0f);
     glBegin(GL_LINES);
-        glVertex2f(-0.25f, 0.15f);  glVertex2f(0.25f, -0.15f); // Top-left to Bottom-right
-        glVertex2f(0.25f, 0.15f);   glVertex2f(-0.25f, -0.15f); // Top-right to Bottom-left
+        glVertex2f(-0.25f, 0.15f);  glVertex2f(0.25f, -0.15f);
+        glVertex2f(0.25f, 0.15f);   glVertex2f(-0.25f, -0.15f);
     glEnd();
 
-    // --- 2. Main Body (Sleek Hexagon/Oval) ---
+
     glColor3fv(darkGrey);
     glBegin(GL_POLYGON);
         glVertex2f(-0.15f, 0.08f);
@@ -51,7 +51,7 @@ void Drone::draw()
         glVertex2f(-0.18f, 0.02f);
     glEnd();
 
-    // Body Accent (Light highlight on top)
+
     glColor3f(0.45f, 0.48f, 0.52f);
     glBegin(GL_QUADS);
         glVertex2f(-0.10f, 0.05f);
@@ -60,9 +60,9 @@ void Drone::draw()
         glVertex2f(-0.08f, 0.02f);
     glEnd();
 
-    // --- 3. Camera (Front-Bottom) ---
+
     glColor3f(0.1f, 0.1f, 0.1f);
-    // Camera Gimbal
+
     glBegin(GL_POLYGON);
     for(int i=0; i<20; i++){
         float a = i * 2.0f * 3.14159f / 20;
@@ -70,8 +70,8 @@ void Drone::draw()
     }
     glEnd();
 
-    // --- 4. Rotors / Propellers ---
-    float rotorSpeed = glutGet(GLUT_ELAPSED_TIME) * 0.8f; // Animation logic
+
+    float rotorSpeed = glutGet(GLUT_ELAPSED_TIME) * 0.8f;
     float rotorOffsets[4][2] = {
         {-0.25f, 0.15f}, {0.25f, 0.15f},
         {-0.25f, -0.15f}, {0.25f, -0.15f}
@@ -82,7 +82,7 @@ void Drone::draw()
         glPushMatrix();
         glTranslatef(rotorOffsets[i][0], rotorOffsets[i][1], 0);
 
-        // Rotor Base (The motor)
+
         glColor3f(0.5f, 0.5f, 0.5f);
         glBegin(GL_POLYGON);
         for(int j=0; j<10; j++){
@@ -91,18 +91,18 @@ void Drone::draw()
         }
         glEnd();
 
-        // Spinning Blades
+
         glRotatef(rotorSpeed + (i * 90), 0, 0, 1);
         glColor3f(0.1f, 0.1f, 0.1f);
 
-        // Draw two thin blades
+
         glBegin(GL_QUADS);
-            // Blade 1
+
             glVertex2f(-0.12f, 0.015f); glVertex2f(0.12f, 0.015f);
             glVertex2f(0.12f, -0.015f); glVertex2f(-0.12f, -0.015f);
         glEnd();
 
-        // Tiny yellow tips for detail
+
         glColor3fv(yellow);
         glBegin(GL_POINTS);
             glVertex2f(0.11f, 0.0f);

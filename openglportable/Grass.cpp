@@ -18,11 +18,11 @@ void Grass::update()
 
 void Grass::draw()
 {
-    // Ground base
+
     glColor3f(0.1f, 0.6f, 0.1f);
     glRectf(-1.2f, y, 1.2f, y + height);
 
-    // Grass blades
+
     glColor3f(0.0f, 0.5f, 0.0f);
     glBegin(GL_LINES);
     for(float x = -1.2f + offset; x <= 1.2f; x += 0.05f)
