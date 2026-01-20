@@ -23,13 +23,7 @@ void Grass::draw()
     glRectf(-1.2f, y, 1.2f, y + height);
 
 
-    glColor3f(0.0f, 0.5f, 0.0f);
-    glBegin(GL_LINES);
-    for(float x = -1.2f + offset; x <= 1.2f; x += 0.05f)
-    {
-        glVertex2f(x, y + height);
-        glVertex2f(x, y + height + 0.03f);
-    }
+
     glEnd();
 }
 

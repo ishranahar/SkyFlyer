@@ -1,11 +1,15 @@
 
+
 #ifndef AIRLINE_H
 #define AIRLINE_H
-#include <GL/glut.h>
 
 class Airline {
- public:
+public:
+    float x, y;
+    float speedX;
+
     Airline();
+    void update();
     void draw();
 };
 

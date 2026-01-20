@@ -44,7 +44,8 @@ void Flower::draw()
     glEnd();
 
 
-    glColor3f(1.0f, 0.2f, 0.6f);
+   // glColor3f(1.0f, 0.2f, 0.6f);
+    glColor3f(1.0f, 0.0f, 0.0f);
     float petalRadius = 0.03f;
 
     for(int p = 0; p < 5; p++)

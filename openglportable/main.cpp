@@ -11,9 +11,10 @@
 #include "sky.h"
 #include "Cloud.h"
 
-
+#include "Airline.h"
+Airline plane;
 #define CLOUD_COUNT 4
-#define DRONE_COUNT 3
+#define DRONE_COUNT 5
 
 const float GRASS_Y = -0.9f;
 const float GRASS_HEIGHT = 0.15f;
@@ -52,7 +53,7 @@ bool collision(float ax,float ay,float aw,float ah,
 
 void drawText(float x, float y, const char* text)
 {
-    glColor3f(1,1,1);
+    glColor3f(1,0,0);
     glRasterPos2f(x, y);
     while (*text)
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, *text++);
@@ -66,7 +67,7 @@ void display()
     drawSky();
     drawSun();
     drawClouds(clouds, CLOUD_COUNT);
-
+  plane.draw();
     grass.draw();
 
     flower1.draw();
@@ -101,6 +102,7 @@ void display()
 
 void update()
 {
+    plane.update();
     updateSky();
     updateClouds(clouds, CLOUD_COUNT);
 
@@ -138,7 +140,7 @@ void update()
         level = score / 400 + 1;
         GAME_SPEED = 0.002f + level * 0.0006f;
 
-        // Tower collision
+
         /*
         if (
             collision(bird.x,bird.y,0.12f,0.12f, tower1.x,tower1.y,tower1.w,tower1.h) ||
@@ -151,7 +153,7 @@ void update()
         }
         */
 
-        // Drone collision
+
         for(int i = 0; i < DRONE_COUNT; i++)
         {
             if (collision(
@@ -180,8 +182,7 @@ void keyboard(unsigned char key, int, int)
     {
         case 'p': paused = !paused; break;
         case 'r': resetGame(); break;
-        case 'u': bird.velocityY = 0.015f; break;
-        case 'd': bird.velocityY = -0.015f; break;
+        case 32: bird.velocityY = 0.015f; break;
         case 27: exit(0);
     }
 }

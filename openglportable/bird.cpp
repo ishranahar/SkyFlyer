@@ -27,7 +27,7 @@ void Bird::draw()
 {
 
     float time = glutGet(GLUT_ELAPSED_TIME) * 0.01f;
-    wingAngle = sin(time) * 25.0f;
+    wingAngle = sin(time) * 50.0f;
 
     glPushMatrix();
     glTranslatef(x, y, 0);
@@ -67,7 +67,7 @@ void Bird::draw()
         glEnd();
     glPopMatrix();
 
-    //  Eye
+
     glColor3f(0.2f, 0.1f, 0.0f);
     glBegin(GL_POLYGON);
     for (int i = 0; i < 30; i++)
@@ -77,7 +77,7 @@ void Bird::draw()
     }
     glEnd();
 
-    //  Beak
+
     glColor3f(1.0f, 0.9f, 0.2f);
     glBegin(GL_TRIANGLES);
         glVertex2f(0.14f, 0.03f);
