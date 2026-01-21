@@ -28,7 +28,7 @@ void Airline::draw() {
 
     glScalef(-0.28f, 0.28f, 1.0f);
 
-    auto FilledCircle = [&](float cx, float cy, float r, int segments) {
+    /*auto FilledCircle = [&](float cx, float cy, float r, int segments) {
         glBegin(GL_TRIANGLE_FAN);
         glVertex2f(cx, cy);
         for (int i = 0; i <= segments; ++i) {
@@ -36,7 +36,7 @@ void Airline::draw() {
             glVertex2f(cx + r * cosf(angle), cy + r * sinf(angle));
         }
         glEnd();
-    };
+    };*/
 
 
     glColor3f(247.0f/255.0f, 2.0f/255.0f, 1.0f/255.0f);
@@ -119,10 +119,10 @@ void Airline::draw() {
     glEnd();
 
     glColor3f(0.0f, 0.0f, 0.0f);
-    FilledCircle(-0.46f, -0.923f, 0.025f, 360);
+   // FilledCircle(-0.46f, -0.923f, 0.025f, 360);
 
     glColor3f(1.0f, 1.0f, 1.0f);
-    FilledCircle(-0.46f, -0.923f, 0.01f, 360);
+   // FilledCircle(-0.46f, -0.923f, 0.01f, 360);
 
     glColor3f(223.0f/255.0f, 227.0f/255.0f, 239.0f/255.0f);
     glBegin(GL_POLYGON);
@@ -214,10 +214,10 @@ void Airline::draw() {
     glEnd();
 
     glColor3f(0.0f, 0.0f, 0.0f);
-    FilledCircle(-0.11f, -0.925f, 0.02f, 360);
+  //  FilledCircle(-0.11f, -0.925f, 0.02f, 360);
 
     glColor3f(1.0f, 1.0f, 1.0f);
-    FilledCircle(-0.11f, -0.925f, 0.008f, 360);
+   // FilledCircle(-0.11f, -0.925f, 0.008f, 360);
 
     glPopMatrix();
 }
