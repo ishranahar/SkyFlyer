@@ -1,106 +1,58 @@
 # 🌤️ Sky Flyer
 
-**Sky Flyer** is a 2D side-scrolling animation-based game developed as part of the **Computer Graphics** course. The game is built using **C++ and OpenGL**, focusing on real-time animation, collision detection, and interactive gameplay mechanics.
+**Sky Flyer** is a 2D side-scrolling animation-based game developed for the **Computer Graphics** course using **C++ and OpenGL**. The game focuses on real-time animation, collision detection, and interactive gameplay.
+
+🎥 **Demo Video:** [https://youtu.be/kYC1Rnh1b3Y?si=frcTedza10qtZax7](https://youtu.be/kYC1Rnh1b3Y?si=frcTedza10qtZax7)
 
 ---
 
-## 📌 Project Information
+## 📌 Project Details
 
-* **Project Title:** Sky Flyer
-* **Project Type:** 2D Animation–Based Game
-* **Course:** Computer Graphics
-* **Section:** L
-* **Technology Used:** C++ with OpenGL
+* **Type:** 2D Animation-Based Game
+* **Course:** Computer Graphics (Section L)
+* **Technologies:** C++, OpenGL
 
 ---
 
-## 🎮 Game Overview
+## 🎮 Game Summary
 
-* A side-scrolling 2D game where a bird flies continuously across the sky
-* Enemy drones and enemy aircraft appear from the opposite direction at fixed time intervals
-* Static buildings act as obstacles
-* Player controls the bird using keyboard input
-* Collision with any enemy or obstacle results in **Game Over**
+The player controls a bird flying across the sky while avoiding enemy drones, aircraft, and static buildings. Difficulty increases gradually as speed and level progress. Any collision results in **Game Over**.
 
 ---
 
-## 🕹️ Gameplay & Features
+## 🕹️ Key Features
 
-### 🐦 Bird Movement
+* **Bird Control:** Up & Down arrow keys
+* **Enemies:** Drones and aircraft spawn periodically
+* **Obstacles:** Static buildings
+* **Level System:** Speed increases with level
+* **Score:** Based on survival time (real-time display)
+* **Sound:** Collision and game-over effects
+* **Controls:**
 
-* Continuous horizontal movement
-* Vertical movement controlled via **Up** and **Down** arrow keys
-
-### 🚁 Enemy System
-
-* Enemy drones and aircraft spawn periodically
-* Enemies move toward the player from the opposite direction
-* Enemy speed increases with level progression
-
-### 📈 Level Progression
-
-* Gradual increase in difficulty
-* Bird and enemy speed increase with each level
-
-### 🧮 Score System
-
-* Score increases based on player survival time
-* Real-time score displayed on the screen
-
-### 🔊 Sound Effects
-
-* Collision sound effects
-* Game-over sound for enhanced user feedback
-
-### ⏸️ Pause & Restart
-
-* Press **P** to pause or resume the game
-* Press **R** to restart the game after game over
+  * **P** – Pause/Resume
+  * **R** – Restart after Game Over
 
 ---
 
-## ⚙️ Implementation Details
+## ⚙️ Technical Highlights
 
-* 2D objects rendered using OpenGL primitives
-* Animation handled using timer-based update functions
-* Object movement implemented using translation transformations
-* Collision detection using simple bounding-box logic
-* Game states include:
-
-  * Running
-  * Paused
-  * Game Over
+* OpenGL primitive-based rendering
+* Timer-based animation
+* Translation-based object movement
+* Bounding-box collision detection
+* Game states: Running, Paused, Game Over
 
 ---
 
-## 👥 Team Member Responsibilities
+## 👥 Team Members
 
-### **Tajmun Nahar Tisha**
-
-* Bird and aircraft design
-* Dynamic sky background animation
-* Pause and restart functionality
-
-
-### **Karima Akter**
-
-* Cloud and building design
-* Level Logic & speed control of drone, birds,  and aircraft
-* Object movement handling
-
-### **Shafiqul Islam Nayem**
-
-* Drone design
-* Full Background  logic Design
-* Score system implementation
-* Collision detection and game-over logic
- 
-### **MD. Nazib Mahbub Esam**
-
-* Grass and flower design
-* Keyboard control implementation
-* Sound system implementation
-
-
+* **Tajmun Nahar Tisha** – Bird & aircraft design, sky animation, pause/restart
+* **Karima Akter** – Cloud & building design, level logic, movement control
+* **Shafiqul Islam Nayem** – Drone design, background logic, score & collision system
+* **MD. Nazib Mahbub Esam** – Grass & flower design, keyboard control, sound system
 
 ---
+
+⭐ A simple yet effective demonstration of 2D game development concepts using OpenGL.
+
